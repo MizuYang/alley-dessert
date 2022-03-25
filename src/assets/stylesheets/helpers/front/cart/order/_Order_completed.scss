@@ -1,0 +1,57 @@
+//* hover 放大動畫效果
+.animation_hover:hover {
+    transform: scale(1.02);
+}
+//* active 放大
+.active_bigger:active {
+    transform: scale(1.05);
+}
+//* 背景圖
+.banner::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background-image: url(https://storage.cloudconvert.com/tasks/a073a222-9341-4a63-8be4-1e3c74e56aa5/pexels-photo-835741.png?AWSAccessKeyId=cloudconvert-production&Expires=1648261018&Signature=dXuhS2bdKGOUU636V7apScLbdsw%3D&response-content-disposition=inline%3B%20filename%3D%22pexels-photo-835741.png%22&response-content-type=image%2Fpng);
+    background-size: cover;
+    background-position: 20% 9%;
+    background-repeat: no-repeat;
+    height: calc(50%);
+    width: 100%;
+    @include xs{
+        background-position: 90% 0;
+        opacity: 0.5;
+    }
+    @include sm {
+        background-image: url(https://images.pexels.com/photos/835741/pexels-photo-835741.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+        height: calc(48.8%);
+        opacity: 0.6;
+    }
+    @include md {
+        height: calc(46%);
+    }
+    @include lg {
+        height: calc(46.9%);
+        background-position: 20% 30%;
+    }
+    @include xl {
+        height: calc(47.5%);
+        background-position: 20% 40%;
+    }
+    @include xxl {
+        background-position: 50%;
+        background-size: 70%;
+    }
+    @media (min-width:1401px) {
+        // background-position: 50%;
+        height: calc(46.3%);
+        background-size: 40%;
+        background-position: 50% 30%;
+    }
+
+}
+//* 576 尺寸以下 文字左右空隙
+p{
+    @include xs {
+        padding: 0  2rem;
+    }
+}

@@ -1,0 +1,171 @@
+//* 產品圖片
+.product_img {
+    height: 15rem;
+    width: 20rem;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+}
+//* 將描述過多的文字截斷
+.card-text {
+    height: 5.85rem;
+    overflow: hidden;
+}
+//* 加入購物車按鈕
+.addCart {
+    height: 3rem;
+}
+.addCart:hover {
+    background: #c43118ed;
+}
+//* 變大效果
+.animation_hover:hover {
+    transform: scale(1.02);
+    transition: 0.2s;
+}
+//* 按鈕 active 變大效果
+.btn.animation_active:active {
+    transform: scale(1.05);
+}
+//* 產品收藏按鈕
+.like_btn {
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    font-size: 2.5rem;
+    padding: 0.2rem;
+    color: #f1ebd8;
+    background: rgba(168, 90, 0, 0.562);
+    border: 0.1rem solid rgba(170, 1, 1, 0.678);
+    border-bottom-left-radius: 50%;
+    & :hover {
+        color: red;
+    }
+    & :active {
+        font-size: 2.75rem;
+    }
+}
+
+//*產品數字欄位
+.product_num {
+    text-align: center;
+    padding: 0.3rem;
+}
+//* 產品數量 加減按鈕
+.product_numBtn {
+    font-size: 2rem;
+    padding-top: 0;
+}
+
+//* 產品類別標籤
+.tag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #f1ebd8;
+    border-bottom-right-radius: 50%;
+    border: 0.1rem solid rgba(170, 1, 1, 0.678);
+    background: rgba(168, 90, 0, 0.562);
+    &:hover {
+        font-size: 1.005rem;
+        color: #f0ecc8;
+    }
+    &:active {
+        font-size: 1.05rem;
+    }
+}
+//* 產品類別按鈕
+.btn-outline-primary:hover {
+    background: #000;
+    color: #f1ebd8;
+    transform: rotate(-4deg);
+    border-radius: 33%;
+}
+//* 點擊的產品會有特效
+.active_category_status {
+    transform: rotate(-6deg);
+    border-radius: 33%;
+    background: #f1ebd8;
+    color: #000;
+}
+
+//* 產品 查看產品資訊
+.product_info {
+    height: 14rem;
+    width: 14rem;
+    position: absolute;
+    top: 5%;
+    // left: 12%;
+    display: none;
+    @include xs {
+        left: 25%;
+    }
+    @include sm {
+        left: 30%;
+    }
+    @include md {
+        left: 18%;
+    }
+    @include lg {
+        left: 12%;
+    }
+    @include xl {
+        left: 6%;
+    }
+    @include xxl {
+        left: 12%;
+    }
+}
+//* 滑鼠過去產品圖片，顯示 "查看更多"
+.product_img:hover .product_info {
+    display: block;
+}
+//* 搜尋欄
+.search_products {
+    width: 50%;
+}
+
+@media (max-width: 575px) {
+    .category {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+//* 卡片邊線
+.card-body {
+    border-left: 0.1rem solid rgba(170, 1, 1, 0.678);
+    border-right: 0.1rem solid rgba(170, 1, 1, 0.678);
+}
+.card-footer {
+    border-right: 0.1rem solid rgba(170, 1, 1, 0.678);
+    border-left: 0.1rem solid rgba(170, 1, 1, 0.678);
+    border-bottom: 0.1rem solid rgba(170, 1, 1, 0.678);
+}
+.card {
+    overflow: hidden;
+}
+
+//* 收藏的愛心 會放大的那種
+.heart {
+    display: none;
+    transition: all 0.5s;
+    color: red;
+    font-size: 14rem;
+    position: absolute;
+    top: -20%;
+    right: 13%;
+}
+//* 取消收藏愛心
+.heartbreak {
+    display: none;
+    transition: all 0.5s;
+    color: red;
+    font-size: 14rem;
+    position: absolute;
+    top: -20%;
+    right: 13%;
+}
+
