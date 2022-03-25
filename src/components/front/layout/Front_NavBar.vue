@@ -8,8 +8,33 @@
           alt="小巷弄甜點的logo"
           width="130"
         />
-        <h1 class="title">小巷弄甜點_alley_dessert</h1></router-link
-      >
+        <h1 class="title">小巷弄甜點_alley_dessert</h1></router-link>
+            <router-link
+              to="/user/products"
+              class="nav-link productList d-block d-lg-none"
+              @click="current_page('productList')"
+              ><i class="bi bi-shop fs-1"></i></router-link>
+
+            <router-link
+              to="/user/cart"
+              class="nav-link cart position-relative d-block d-lg-none"
+              @click="current_page('cart')"
+              title="購物車">
+              <span
+                class="
+                  position-absolute
+                  top-75
+                  end-0
+                  translate-middle
+                  badge
+                  rounded-pill
+                  bg-danger
+                  cart_product_num
+                ">
+                {{ cartData.length }}
+              </span>
+              <i class="bi bi-cart4 fs-1"></i>
+            </router-link>
 
       <button
         class="navbar-toggler"
@@ -87,8 +112,7 @@
               to="/user/favorite"
               class="nav-link favorite"
               @click="current_page('favorite')"
-              title="收藏商品頁面"
-            >
+              title="收藏商品頁面">
             <span v-if="collect_data.length > 0">
               <i class="bi bi-heart-fill fs-3" style="color:red"></i>
             </span>
