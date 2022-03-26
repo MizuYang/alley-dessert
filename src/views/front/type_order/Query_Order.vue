@@ -7,28 +7,25 @@
       <div class=" input-group mb-5 search_content">
 
         <div class="mx-auto">
-          <label class="mx-auto mb-3 order_title" for="orderId"
-          >請輸入訂單編號( 20碼 )</label
-        >
-                <input
-                    type="text"
-                    placeholder="請輸入訂單編號"
-                    id="orderId"
-                    class="input-group-text bg-dark text-primary order_id_text"
-                    v-model.trim="order_id"
-                    />
-                <button
-                    type="button"
-                    class="send_btn"
-                    :class="{ disabled_btn: order_id.length !== 20 }"
-                    @click="get_order"
-                    :disabled="order_id.length !== 20"
-                >送出</button>
-                <p>
-                <span
-                    class="badge text-danger fw-bold bg-primary d-none error_id_text"
-                    >請輸入正確的 20碼 訂單編號！</span>
-                </p>
+              <label class="mx-auto mb-3 order_title" for="orderId"
+              >請輸入訂單編號( 20碼 )</label>
+              <input
+                  type="text"
+                  placeholder="請輸入訂單編號"
+                  id="orderId"
+                  class="input-group-text bg-dark text-primary order_id_text"
+                  v-model.trim="order_id"/>
+              <button
+                  type="button"
+                  class="send_btn"
+                  :class="{ disabled_btn: order_id.length !== 20 }"
+                  @click="get_order"
+                  :disabled="order_id.length !== 20">送出</button>
+              <p>
+              <span
+                  class="badge text-danger fw-bold bg-primary d-none error_id_text"
+                  >請輸入正確的 20碼 訂單編號！</span>
+              </p>
         </div>
       </div>
 
@@ -155,9 +152,11 @@ export default {
         //* 輸入的ID與篩選出來的訂單ID沒有符合的就是他打錯了
         document.querySelector('.error_id_text').classList.remove('d-none') //* 顯示錯誤
         this.order_id = ''
+        this.$httpMessageState(false, '訂單編號不存在，查詢')
       } else if (this.queryOrder.length > 0) {
         //* 搜尋正確的話就隱藏錯誤提示
         document.querySelector('.error_id_text').classList.add('d-none')
+        this.$httpMessageState(true, '查詢訂單')
       }
     },
     //* 篩選出 ID 的那筆訂單

@@ -264,8 +264,8 @@ export default {
       this.$http.post(api, { data: this.form }).then((res) => {
         const orderId = res.data.orderId
         this.$router.push(`/user/order_confirm/${orderId}`)
-      }).catch((err) => {
-        alert(err.response.data.message)
+      }).catch(() => {
+        this.$httpMessageState(false, '購物車為空，發送訂單')
         this.$router.push('/user/products')
       })
     },
