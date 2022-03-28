@@ -1,51 +1,27 @@
 .contact {
     position: relative;
     z-index: 1;
-    margin-bottom: 15rem;
+    margin-bottom: 8rem;
 }
 //* 背景圖片
 .banner_main::before {
-    background-image: url(https://lh3.googleusercontent.com/4iZp45HqS9VfJzshHxKgu705EoGH_ZFLizPah5K0pquuUAU0mZ_0M-RNlB_dUOEkvZgyZZxahXIgRwyollLKYm1Kx3vpaRNOu5baRXHAMKeLukzlNSQiFZhhHQrDtfa62S_D3e0kTzAXAAMBDZnNmrjRLZP-zCzD2w7uwPuUEzATnTQ57PpaU0vUBs1KYlo1ub7pS8rjAwZevsBn6ky1wtUdr63FdV60vxsxrCL-OWNDfyRZvCjCV1a5GtzVOstReaOY9nNfDz1tF2q0ECwnp9Bp5x3d9m3GNOeGkkTTdz7hnqc6QpivSxfiz6dHUiYdwXSkDSbitY_xjwcq_44ce_WpUntKoknCUpgVtYM46LmvzymaUEWAClv1HDCCScjL1aSoEkXRVkDGU7tCHX6SdDkfi0UuCB5kWNWmtmvUZBa7gwZIdzEhUq1VeNOaXzAdk8Nsw49zVfofDz75Xd5bICHR4fqMiWHFhJWB3nliV5JpInUItDB2VeEtMY1Q1zbslV7gzUNLV0Zft7qe5eEG6Kb336mdSTQslj1qT6xaoXsVuM5MNZjomVtfiB8g0VbBrL9K4vzR0b0EsZlE1gGmp9PBFbmHBC64ZpXgViXyOgisY63VjIBmOjk-NxVprgczpgXenH_EhS4K8sN5TaNwwHP7PsLpw9MGMvEmzLjf5r6xGjoq-25eMxiUBVYfGO58dibhg19k92CpK8hNRSUG8QyRe4ZVACpdOh76Uvs66AMJrYloRKXO9szlC2Unxy8EnlQ4sZiC0EjJKFjmBoBY5kMVA_q2MquEu0s=w718-h359-no?authuser=0);
+    background-image: url('https://github.com/MizuYang/vue-week8/blob/main/src/assets/test/test%20(1).png?raw=true');
     content: '';
-    background-repeat: no-repeat;
-    background-size: contain;
-    top: 10%;
-    left: 13%;
-    height: calc(100%);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: calc(120%);
     width: 100%;
     opacity: 0.6;
     position: absolute;
     z-index: -1;
     @include xs {
-        display: none;
-    }
-    @include sm {
-        background-image: url(https://lh3.googleusercontent.com/RlTMv4nYAS1c_W7R4eTLE6FqPTA_YuiukuBwO30Z5jSjyelPQMo3lnh9-0gGgS-2RKuofP7p2ju2ymsyE6hWb3A8b-6QfVJ6XlPmk-X3KikuEr0op_GBZVBxg2jRUEYl3tvXHpCowSAiJVg2EchVWSN8l10q26hB8qWYa1PPgTpcVkOk7pXFeYsNmnnboq1-nzk1lRJ2OwNFgyz1bWDirlfN-QfUCZdt68HpM82wCvJysgpWkbYNxk-qvWFOIyut5BFmnZgPQZ8AMfsFQON8eaCewfaHH-keCqu22W8765TqwUPcTuc-SOQ_zc6W16j-nGzNpy5Gi0_gS-hPoFIWb7zKjTwmNCmXSVR0aBkm1QomrN8efX1ormiH2aQyJDb0YeJuFAyEM9ovAHBw-q5CMGuolEkoMrzTe1s9gQeEsq3IfzwTQTijieYefiSdVe7ciXaZtLWQ5Hv6qezx8eejuvNlpSXszmbFBVyUam5bp48OY4Ypq7E0rjc1g4uDpJA7aRKxYXLlOMNeukffjEjBln2NFCTqEXary8k1r1u1sKqKO5tRFYAWL8lxs8y6fTs8T5mYCVOa5P7Sq-pXITbfCCvDlSsIQw9mZbN5t-xb55ddF_f7sBnXz_CCm0eiS7AkVFqK_qE-Brwf0NyN4a1K1s25rvoRWzUFl5YiktHMnpn5PLg7F3NtqJcc5Rv5NCSpGv1-TvjarnedRyBaFmZAsZ7kNcI6INQEJgPo5EclbhxjoIN6LtNiiTjJmHofADD1oVCqyW8G_D7NEDoPMi6TCCofwXCaa5txXXg=w266-h1193-no?authuser=0);
-        display: block;
-        height: calc(100vh);
-        width: 20rem;
-        top: 15%;
-        left: 33%;
-    }
-    @include md {
-        background-image: url(https://lh3.googleusercontent.com/4iZp45HqS9VfJzshHxKgu705EoGH_ZFLizPah5K0pquuUAU0mZ_0M-RNlB_dUOEkvZgyZZxahXIgRwyollLKYm1Kx3vpaRNOu5baRXHAMKeLukzlNSQiFZhhHQrDtfa62S_D3e0kTzAXAAMBDZnNmrjRLZP-zCzD2w7uwPuUEzATnTQ57PpaU0vUBs1KYlo1ub7pS8rjAwZevsBn6ky1wtUdr63FdV60vxsxrCL-OWNDfyRZvCjCV1a5GtzVOstReaOY9nNfDz1tF2q0ECwnp9Bp5x3d9m3GNOeGkkTTdz7hnqc6QpivSxfiz6dHUiYdwXSkDSbitY_xjwcq_44ce_WpUntKoknCUpgVtYM46LmvzymaUEWAClv1HDCCScjL1aSoEkXRVkDGU7tCHX6SdDkfi0UuCB5kWNWmtmvUZBa7gwZIdzEhUq1VeNOaXzAdk8Nsw49zVfofDz75Xd5bICHR4fqMiWHFhJWB3nliV5JpInUItDB2VeEtMY1Q1zbslV7gzUNLV0Zft7qe5eEG6Kb336mdSTQslj1qT6xaoXsVuM5MNZjomVtfiB8g0VbBrL9K4vzR0b0EsZlE1gGmp9PBFbmHBC64ZpXgViXyOgisY63VjIBmOjk-NxVprgczpgXenH_EhS4K8sN5TaNwwHP7PsLpw9MGMvEmzLjf5r6xGjoq-25eMxiUBVYfGO58dibhg19k92CpK8hNRSUG8QyRe4ZVACpdOh76Uvs66AMJrYloRKXO9szlC2Unxy8EnlQ4sZiC0EjJKFjmBoBY5kMVA_q2MquEu0s=w718-h359-no?authuser=0);
-        width: 100%;
-        left: 0;
-        top: 40%;
-    }
-    @include xl {
-        top: 35%;
-    }
-    @media (min-width: 1401px) {
-        height: calc(100%);
-        width: 100%;
-        left: 13%;
-        top: 10%;
+        top: 20%;
+        background-size: cover;
     }
 }
 //* 表單包裝的容器 ，控制文字欄位長度用
 .form-container {
-    // width: 20rem;
     margin: 0 auto;
     padding-left: 5%;
     padding-right: 5%;

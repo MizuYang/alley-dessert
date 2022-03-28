@@ -59,6 +59,9 @@ export default {
 @import '@/assets/stylesheets/helpers/_mixin.scss';
 .carousel-item img{
   height: 20rem;
+  @include xs {
+    height: 15rem;
+  }
   @include md {
     height: 25rem;
   }

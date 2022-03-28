@@ -18,39 +18,32 @@ p{
     position: absolute;
     content: "";
     z-index: -1;
-    background-image: url(https://storage.cloudconvert.com/tasks/a073a222-9341-4a63-8be4-1e3c74e56aa5/pexels-photo-835741.png?AWSAccessKeyId=cloudconvert-production&Expires=1648261018&Signature=dXuhS2bdKGOUU636V7apScLbdsw%3D&response-content-disposition=inline%3B%20filename%3D%22pexels-photo-835741.png%22&response-content-type=image%2Fpng);
+    background-image: url(https://github.com/MizuYang/vue-week8/blob/main/src/assets/imageUrl/new_banner/pexels-photo-835741.png?raw=trueg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 35%;
+    top: 0;
+    left: 0;
+    height: calc(100%);
+    width: 100%;
     opacity: .5;
-    width: 50%;
     @include xs {
-        left: 5%;
-        width: 90%;
-        height: calc(44%);
-        background-position:  60% 0%;
-        background-repeat: no-repeat;
-        background-size: cover;
+        top: 20%;
+        background-position: 70%;
     }
     @include sm {
-        width: 90%;
-        left: 5%;
-        height: calc(48.9%);
-        background-position:  50%;
-        background-repeat: no-repeat;
-        background-size: cover;
+        top: 15%;
     }
     @include md {
-        height: calc(45.9%);
+        background-position: 70%;
     }
     @include lg {
-        height: calc(46.9%);
-        left: 5%;
-    }
-    @include xl {
-        height: calc(47.8%);
+        top: 0;
     }
     @media (min-width: 1401px) {
         left: 0;
         width: 100%;
-        height: calc(100%);
+        height: calc(102%);
         top: 0;
         background-position:  0% 40%;
     }

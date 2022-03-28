@@ -51,41 +51,25 @@
     position: absolute;
     content: "";
     z-index: -1;
+    background-attachment: fixed;
     background-image: url(https://images.pexels.com/photos/4553118/pexels-photo-4553118.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
-    background-position: 50%;
-    opacity: .7;
-    width: 50%;
-    height: calc(53.5%);
+    background-position: 0 40%;
+    background-size: cover;
+    opacity: .6;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    background-repeat: no-repeat;
+    height: calc(105%);
     @include xs {
-        left: 5%;
-        width: 90%;
-        height: calc(47.6%);
-        background-position:  60% 0%;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    @include sm {
-        width: 90%;
-        height: calc(47.6%);
-        background-position:  50%;
-        background-repeat: no-repeat;
-        background-size: cover;
+        background-position: 40% 60%;
+        height: calc(105%);
     }
     @include md {
-        height: calc(47.9%);
+        background-position: 55% 55%;
     }
-    @include lg {
-        height: calc(48.5%);
-        left: 5%;
-    }
-    @include xl {
-        height: calc(48.8%);
-    }
-    @media (min-width: 1401px) {
-        left: 0;
-        width: 100%;
-        height: calc(53.5%);
-        background-position:  0% 39.5%;
+    @include xxl {
+        background-position: 55% 35%;
     }
 }
 //* 調整 "查看更多" 圖片位置

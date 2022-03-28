@@ -50,7 +50,7 @@ configure({
 setLocale('zh_TW')
 
 const app = createApp(App)
-//* 吐司提示窗
+
 app.config.globalProperties.$httpMessageState = $httpMessageState //* 吐司
 app.config.globalProperties.$collectAnimation = $collectAnimation //* 加入收藏
 app.config.globalProperties.$cancelCollectAnimation = $cancelCollectAnimation //* 取消收藏
@@ -62,6 +62,7 @@ app.component('Field', Field)
 app.component('ErrorMessage', ErrorMessage)
 
 app.component('Loading', VueLoading)
+
 app.use(VueAxios, axios)
 app.use(router)
 app.mount('#app')

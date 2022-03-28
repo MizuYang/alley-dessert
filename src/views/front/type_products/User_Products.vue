@@ -5,12 +5,11 @@
     </h2>
     <div class="row">
       <div
+        v-if="!category_toggle"
         class="
           mb-5
           d-flex
           col-12
-          flex-sm-wrap
-          justify-content-sm-evenly
           flex-lg-row
           col-lg-12 col-xl-8
           category">
@@ -58,21 +57,23 @@
         </button>
         <button
           type="button"
-          class="btn btn-outline-primary products_category_btn animation_active mt-3 mt-md-0"
+          class="btn btn-outline-primary products_category_btn animation_active mt-md-0"
           @click="price_sort"
           :class="{active_category_status : category['價格低到高']}">
-          價格 / 低到高
+          <i class="bi bi-cash-coin"></i> ↓/↑
         </button>
       </div>
-      <div class="col text-end text-center text-xl-end mb-sm-5 mb-3">
-        <label for="search_products">產品搜尋：</label>
+
+      <div class="text-end mb-sm-5 mb-3 search d-flex">
+        <button type="button" class="btn btn-outline-primary btn-sm me-auto d-block" @click="category_toggle=!category_toggle">隱藏類別</button>
+        <label for="search_products"><i class="bi bi-search me-2"  v-if="!category_toggle"></i></label>
         <input
           type="search"
           id="search_products"
           class="search_products"
           placeholder="輸入產品名稱"
           v-model="search_value"
-          @input="keywords"/>
+          @input="keywords"  v-if="!category_toggle" />
       </div>
     </div>
     <div class="card-group">
@@ -185,7 +186,8 @@ export default {
       search_value: '',
       isLoading: false,
       category: {},
-      heart_disabled: 0
+      heart_disabled: 0,
+      category_toggle: false
     }
   },
   watch: {

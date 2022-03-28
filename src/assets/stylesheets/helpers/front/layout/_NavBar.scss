@@ -35,6 +35,12 @@
         white-space: nowrap;
     }
 }
+//* 響應式隱藏 LOGO
+.logo{
+    @media (max-width:576px) {
+        display: none;
+    }
+}
 //*購物車 數量 標籤
 .cart_product_num{
     margin-top: .5rem;
@@ -50,7 +56,7 @@
 //* 響應式 漢堡選單中的購物車 位置跑掉
 .cart{
     @media (max-width:768px) {
-        margin-right: 32px;
+        // margin-right: 32px;
     }
 }
 //* 漢堡選單 放大

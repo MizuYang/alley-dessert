@@ -21,7 +21,8 @@
                     </span>
                   </th>
                   <th>
-                    {{ order.id }}
+                    <span class=" fw-bold border-bottom id"> {{ order.id }} </span>
+                    <button type="button" class="btn btn-outline-primary btn-sm ms-2 tag-read" :data-clipboard-text="orderId" @click="copy">複製</button>
                   </th>
               </tr>
               <tr>
@@ -143,6 +144,7 @@
 </template>
 
 <script>
+import Clipboard from 'clipboard'
 import timeLine from '@/components/front/cart/Cart_TimeLine.vue'
 import confirmModal from '@/components/front/modal/Order_Confirm.vue'
 export default {
@@ -194,11 +196,29 @@ export default {
         this.$httpMessageState(res.data.success, '付款')
         this.emitter.emit('open_confirmModal', '關閉')
         this.emitter.emit('get_cart') //* 請 Navbar更新數字
+        setTimeout(() => {
+          this.emitter.emit('get_orderId', this.orderId) //* 給完成訂單頁面訂單的ID
+        }, 1000)
         this.$router.push('/user/order_completed')
       }).catch((err) => {
         this.isLoading = false
         this.$httpMessageState(err.response.success, '付款')
         this.emitter.emit('open_confirmModal', '關閉')
+      })
+    },
+    //* 複製的方法
+    copy () {
+      const clipboard = new Clipboard('.tag-read')
+      clipboard.on('success', e => {
+        this.$httpMessageState(true, '複製')
+        //* 釋放內存
+        clipboard.destroy()
+      })
+      clipboard.on('error', e => {
+        //* 不支援複製
+        this.$httpMessageState(false, '該瀏覽器不支援，複製')
+        //* 釋放內存
+        clipboard.destroy()
       })
     }
   },

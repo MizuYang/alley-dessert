@@ -9,6 +9,7 @@
           width="130"
         />
         <h1 class="title">小巷弄甜點_alley_dessert</h1></router-link>
+        <router-link class="navbar-brand logo_RWD d-lg-none" title="首頁" to="/user/home"><i class="bi bi-house-door fs-1 ms-2"></i></router-link>
             <router-link
               to="/user/products"
               class="nav-link productList d-block d-lg-none"
@@ -34,6 +35,17 @@
                 {{ cartData.length }}
               </span>
               <i class="bi bi-cart4 fs-1"></i>
+            </router-link>
+
+            <router-link
+              to="/user/favorite"
+              class="nav-link favorite d-lg-none"
+              @click="current_page('favorite')"
+              title="收藏商品頁面">
+            <span v-if="collect_data.length > 0">
+              <i class="bi bi-heart-fill fs-3" style="color:red"></i>
+            </span>
+              <i class="bi bi-heart fs-3 collect_icon" v-else></i>
             </router-link>
 
       <button
@@ -203,5 +215,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/stylesheets/helpers/_mixin.scss";
 @import "@/assets/stylesheets/helpers/front/layout/_NavBar.scss";
 </style>

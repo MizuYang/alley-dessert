@@ -11,29 +11,32 @@
     content: "";
     position: absolute;
     top: 0;
-    left: 25%;
+    left: 0%;
     opacity: .5;
     z-index: -1;
-    background-image: url(https://lh3.googleusercontent.com/KgSHk0jLt9qpWw_-H3w6zADbk6023eW-CyQeZJCBpNDGCYPADmeZwiP9ZK4ajYIUcCq7aBLrp9L0nMLJKC9Dd4bwB7tv4NGXhm4Wtv929rCVye6kpyu_iwbSxm_6_ejYTIKoQymz55F5Ck0Rv8B1iFy5eziZUpHLaalQNcOtNBWGvTbIrArcr96xjC_cSy84ocRHr7Z-SGEKH8irKvh5qWa-RXnvO9mFlZJm21A3pIrKBKO0ZGiMsByJiqx4ux0-qqz2wQpbUSNygPjAjw6XzxjfvD0UcLtVZthB9amz_S5CaEnWqNVwhHbYqAAbXjLtgD2I1TV3QYmnzEmnpG-uIVG8gYPxAwuS4oEBNOUWF49t1RaRNjFOuMjNOfpU7jx9O76vaOZE4b5BSLxiXpghns6j3mp1pqDoF6CTeakc-ggnvdC0jBxjEw_0pgk6dcGVgJD3daNdO4-P74jIZxipcmMZ-x51582LeFkXRbn3d98hQxt_F6tjJQBTy65Ll22SF7sCQMLmpNLO2VLY1L2bA5eQCRXxyM7jZkOaCtFfXm2RH-3Mgh0t5P8ipNr6dW4pDhfCcsVxur8ca0YU2sMtpuA6WyHUy1OGk-nDH9_jU_0VOHzuJ_PdH2PT4kEpJrAf31XLA-AIQ8Lovec19MD-FkCx-Q7uudcX4vst4aveT9SzMWdL3WAsw5Wsv5rUjt7lkteWhB_12Wx3mV19cQ0zfGJ1Ug5FV8SKl2LRw9_qOwuso9h3KCIiH17QhRdyD0bdix5hmhGjVIxFr-6Z4QEgd6agntWZap9Vkmk=w692-h346-no?authuser=0);
+    background-image: url('https://github.com/MizuYang/vue-week8/blob/main/src/assets/test/test%20(2).png?raw=true');
     background-repeat: no-repeat;
-    background-size: contain;
-    background-position: 50%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     width: 100%;
-    height: calc(100vh);
+    height: calc(105%);
     left: 0;
     @include xs {
-      display: none;
+      top: 10%;
+      background-repeat: no-repeat;
+      height: calc(200%);
+      // display: none;
     }
     @include sm {
-      display: none;
+      // display: none;
+      height: calc(170%);
+    }
+    @include md {
+      height: calc(155%);
     }
     @include xxl {
-        display: block;
-        top: 10%;
-    }
-    @media (min-width: 1401px) {
-        height: calc(100%);
-        top: 5%;
+      height: calc(105%);
     }
   }
   

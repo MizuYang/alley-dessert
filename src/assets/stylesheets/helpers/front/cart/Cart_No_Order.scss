@@ -6,22 +6,6 @@
 .active_bigger:active {
     transform: scale(1.05);
 }
-// .banner::before {
-//     content: "";
-//     background-image: url(https://images.pexels.com/photos/10518222/pexels-photo-10518222.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
-//     background-size: contain;
-//     background-position: 50%;
-//     background-repeat: no-repeat;
-//     height: calc(100%);
-//     width: 100%;
-//     position: absolute;
-//     z-index: -1;
-//     left: 0;
-//     top: 0;
-//     opacity: 0.7;
-// }
-
-
 .content {
     margin-top: 15%;
 }
@@ -31,42 +15,13 @@
     position: absolute;
     content: "";
     z-index: -1;
+    background-attachment: fixed;
     background-image: url(https://images.pexels.com/photos/3740177/pexels-photo-3740177.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+    background-size: cover;
+    background-position: center;
+    left: 0;
+    top: 0;
     opacity: .7;
-    top: 25.4%;
-    width: 50%;
-    height: calc(53.5%);
-    @include xs {
-        left: 5%;
-        width: 90%;
-        height: calc(47.6%);
-        background-position:  60% 0%;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    @include sm {
-        width: 90%;
-        height: calc(47.6%);
-        background-position:  50%;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    @include md {
-        height: calc(47.9%);
-    }
-    @include lg {
-        height: calc(48.5%);
-        left: 5%;
-    }
-    @include xl {
-        height: calc(48.8%);
-    }
-    @media (min-width: 1401px) {
-        // top: 19%;
-        left: 0;
-        width: 100%;
-        height: calc(53.5%);
-        background-position:  0% 50%;
-        background-size: cover;
-    }
+    width: 100%;
+    height: calc(100%);
 }

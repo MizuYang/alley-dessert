@@ -126,14 +126,148 @@
 .search_products {
     width: 50%;
 }
-
-@media (max-width: 575px) {
+//* 類別 fixed 設定
+@include xs {
     .category {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
+        position: fixed;
+        overflow: scroll;
+        background: #000;
+        top: 10%;
+        z-index: 2;
+        & button{
+            padding-left: 2rem;
+            padding-right: 2rem;
+            line-height: 1.2;
+            height: 4rem;
+            font-size: 1.3rem;
+        }
+    }
+    .search{
+        position: fixed;
+        top: 19%;
+        z-index: 2;
+        & .search_products{
+            width: 50%;
+        }
+    }
+    .title{
+        margin-top: 4rem;
     }
 }
+@include sm {
+        .category {
+            position: fixed;
+            overflow: scroll;
+            background: rgba(0, 0, 0, 0.637);
+            top: 9%;
+            width: 90%;
+            left:7%;
+            z-index: 2;
+            & button{
+                padding: 0 1rem;
+                font-size: 1.5rem;
+                width: 50%;
+            }
+        }
+        .search{
+            position: fixed;
+            top: 17%;
+            z-index: 2;
+            & .search_products{
+                width: 50%;
+            }
+        }
+        .title{
+            margin-top: 4rem;
+        }
+}
+@include md {
+    .category {
+        top: 14.7%;
+        width: 95%;
+        // width: 100vw;
+        left: 4%;
+        & button{
+            font-size: 1.6rem;
+            height: 5rem;
+        }
+    }
+    .title{
+        margin-top: 6rem;
+    }
+    .search{
+        top: 11%;
+        z-index: 1100;
+        width: 41%;
+        right: 0;
+    }
+}
+@include lg {
+    .category {
+        top: 14.7%;
+        left: 0;
+        width: 100%;
+        & button{
+            font-size: 1.4rem;
+            padding: 0 3rem;
+        }
+    }
+    .title{
+        margin-top: 6rem;
+    }
+    .search{
+        top: 11%;
+        width: 41%;
+        right: 0;
+    }
+}
+@include xl {
+    .category {
+        width: 100%;
+    }
+    .search{
+        width: 27%;
+    }
+    .title{
+        margin-top: 8rem;
+    }
+}
+@media (min-width: 1401px) {
+    .category {
+        top: 10rem;
+        left: 0%;
+        width: 100%;
+        overflow: hidden;
+    }
+    .search{
+        top: 7rem;
+        width: 25rem;
+        right: 5%;
+    }
+}
+@media (min-width: 2000px) {
+    .category {
+        top: 10rem;
+        left: 25%;
+        width: 80%;
+        overflow: hidden;
+        & button{
+            height:5rem;
+            width: 10rem;
+            font-size: 1.4rem;
+            padding: 0rem 3rem;
+        }
+    }
+    .search{
+        top: 7rem;
+        width: 21rem;
+        right: 25%;
+    }
+    .title{
+        margin-top: 7rem;
+    }
+}
+
 //* 卡片邊線
 .card-body {
     border-left: 0.1rem solid rgba(170, 1, 1, 0.678);
