@@ -32,7 +32,7 @@ p{
         background-position: 70%;
     }
     @include sm {
-        top: 15%;
+        top: 0%;
     }
     @include md {
         background-position: 70%;
@@ -43,7 +43,7 @@ p{
     @media (min-width: 1401px) {
         left: 0;
         width: 100%;
-        height: calc(102%);
+        height: calc(101%);
         top: 0;
         background-position:  0% 40%;
     }

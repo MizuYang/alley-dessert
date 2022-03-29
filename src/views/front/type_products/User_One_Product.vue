@@ -92,6 +92,7 @@
       </div>
     </div>
   </div>
+  <swiper :product="product" class="mb-5"></swiper>
   <Loading v-model:active="isLoading">
     <div class="cssload-container">
       <div class="cssload-dot"></div>
@@ -103,7 +104,11 @@
 </template>
 
 <script>
+import swiper from '@/components/front/swiper/Swiper.vue'
 export default {
+  components: {
+    swiper
+  },
   inject: ['emitter'],
   data () {
     return {

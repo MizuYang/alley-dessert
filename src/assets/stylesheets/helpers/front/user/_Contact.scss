@@ -19,6 +19,9 @@
         top: 20%;
         background-size: cover;
     }
+    @include sm {
+        top: 0%;
+    }
 }
 //* 表單包裝的容器 ，控制文字欄位長度用
 .form-container {

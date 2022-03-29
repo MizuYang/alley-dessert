@@ -6,9 +6,6 @@
 .active_bigger:active {
     transform: scale(1.05);
 }
-.content {
-    margin-top: 15%;
-}
 
 //* 無收藏產品的 banner
 .banner::before {
@@ -23,5 +20,19 @@
     top: 0;
     opacity: .7;
     width: 100%;
-    height: calc(100%);
+    @include xs {
+        height: calc(175%);
+    }
+    @include sm {
+        height: calc(146%);
+    }
+    @include md {
+        height: calc(125%);
+    }
+    @include xl {
+        height: calc(127%);
+    }
+    @include xxl {
+        height: calc(125%);
+    }
 }

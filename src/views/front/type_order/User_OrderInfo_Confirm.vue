@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-10 mb-5 ">
+  <div class="container mt-8 mt-sm-10 mb-5 ">
     <h2 class="title text-center mb-5 pt-3">
       <span class="decorate">確認訂單資料</span>
     </h2>
@@ -22,7 +22,10 @@
                   </th>
                   <th>
                     <span class=" fw-bold border-bottom id"> {{ order.id }} </span>
-                    <button type="button" class="btn btn-outline-primary btn-sm ms-2 tag-read" :data-clipboard-text="orderId" @click="copy">複製</button>
+                    <button type="button" class="btn btn-outline-primary btn-sm ms-2 tag-read" :data-clipboard-text="orderId" @click="copy">
+                      複製
+                      <span class="copy_point ms-2 text-success badge bg-primary" :class="{'d-none': !copy_point}"><i class="bi bi-check-lg"></i></span>
+                    </button>
                   </th>
               </tr>
               <tr>
@@ -161,7 +164,8 @@ export default {
       order: [],
       create_at: 0,
       is_pay: false,
-      isLoading: false
+      isLoading: false,
+      copy_point: false
     }
   },
   methods: {
@@ -210,6 +214,7 @@ export default {
     copy () {
       const clipboard = new Clipboard('.tag-read')
       clipboard.on('success', e => {
+        this.copy_point = true
         this.$httpMessageState(true, '複製')
         //* 釋放內存
         clipboard.destroy()

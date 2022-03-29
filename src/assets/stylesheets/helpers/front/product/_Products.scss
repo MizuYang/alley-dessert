@@ -78,16 +78,18 @@
 }
 //* 產品類別按鈕
 .btn-outline-primary:hover {
-    background: #000;
+    background: rgba(187, 187, 32, 0.363);
     color: #f1ebd8;
     transform: rotate(-4deg);
-    border-radius: 33%;
+    border-top-left-radius: 33%;
+    border-bottom-right-radius: 33%;
 }
 //* 點擊的產品會有特效
 .active_category_status {
     transform: rotate(-6deg);
-    border-radius: 33%;
-    background: #f1ebd8;
+    border-top-left-radius: 33%;
+    border-bottom-right-radius: 33%;
+    background: #f1ebd8ea;
     color: #000;
 }
 
@@ -97,7 +99,6 @@
     width: 14rem;
     position: absolute;
     top: 5%;
-    // left: 12%;
     display: none;
     @include xs {
         left: 25%;
@@ -130,7 +131,8 @@
 @include xs {
     .category {
         position: fixed;
-        overflow: scroll;
+        overflow-x: scroll;
+        overflow-y: hidden;
         background: #000;
         top: 10%;
         z-index: 2;
@@ -157,16 +159,14 @@
 @include sm {
         .category {
             position: fixed;
-            overflow: scroll;
             background: rgba(0, 0, 0, 0.637);
             top: 9%;
             width: 90%;
             left:7%;
             z-index: 2;
             & button{
-                padding: 0 1rem;
-                font-size: 1.5rem;
-                width: 50%;
+                height: 4.5rem;
+                font-size: 1.6rem;
             }
         }
         .search{
@@ -183,9 +183,8 @@
 }
 @include md {
     .category {
-        top: 14.7%;
+        top: 15%;
         width: 95%;
-        // width: 100vw;
         left: 4%;
         & button{
             font-size: 1.6rem;
@@ -204,12 +203,12 @@
 }
 @include lg {
     .category {
-        top: 14.7%;
+        top: 15.5%;
         left: 0;
         width: 100%;
         & button{
             font-size: 1.4rem;
-            padding: 0 3rem;
+            padding: 0 2.2rem;
         }
     }
     .title{
@@ -253,7 +252,7 @@
         overflow: hidden;
         & button{
             height:5rem;
-            width: 10rem;
+            width: 12rem;
             font-size: 1.4rem;
             padding: 0rem 3rem;
         }
@@ -265,6 +264,14 @@
     }
     .title{
         margin-top: 7rem;
+    }
+}
+@media (max-width:376px) {
+    .category {
+        top: 13%;
+    }
+    .search{
+        top: 24%;
     }
 }
 

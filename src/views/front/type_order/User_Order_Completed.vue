@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-10 banner">
+  <div class="container mt-8 mt-sm-10 banner">
     <h2 class="title text-center pt-3 mb-4">
       <span class="decorate">完成訂單</span>
     </h2>
@@ -9,7 +9,10 @@
       <div class="text-center mt-3">
           <h3>感謝您的訂購 <span class=" fw-bold ">(已付款)</span> </h3>
           <p>請妥善保管您的訂單編號： <span class=" fw-bold border-bottom id"> {{ order_Id }} </span>
-          <button type="button" class="btn btn-outline-primary btn-sm ms-2 tag-read" :data-clipboard-text="order_Id" @click="copy">複製</button>
+          <button type="button" class="btn btn-outline-primary btn-sm ms-2 tag-read" :data-clipboard-text="order_Id" @click="copy">
+            複製
+            <span class="copy_point ms-2 text-success badge bg-primary" :class="{'d-none': !copy_point}"><i class="bi bi-check-lg"></i></span>
+          </button>
 
           </p>
           <p>您訂購的商品將在近期安排出貨，請留意簡訊通知或配送人員的電話。</p>
@@ -102,7 +105,8 @@ export default {
   data () {
     return {
       time_line: 0,
-      order_Id: JSON.parse(localStorage.getItem('orderId')) || ''
+      order_Id: JSON.parse(localStorage.getItem('orderId')) || '',
+      copy_point: false
     }
   },
   methods: {
@@ -111,6 +115,7 @@ export default {
       const clipboard = new Clipboard('.tag-read')
       clipboard.on('success', e => {
         this.$httpMessageState(true, '複製')
+        this.copy_point = true
         //* 釋放內存
         clipboard.destroy()
       })
