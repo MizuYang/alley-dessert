@@ -18,7 +18,7 @@
             <th>圖片</th>
             <th style="width: 150px">名稱</th>
             <th>數量</th>
-            <th  style="width: 150px" >金額</th>
+            <th  style="width: 200px" >金額</th>
           </tr>
         </thead>
         <tbody>
@@ -49,9 +49,9 @@
                 >已使用優惠券</span
               >
             </td>
-            <td style="width: 150px" class="d-block">
+            <td style="width: 200px" class="d-block">
               總價：
-              <span class="text-success fw-bold fs-3">{{ $thousandths(total) }}</span> 元
+              <span class="text-success fw-bold fs-5">{{ $thousandths(total) }}</span> 元
             </td>
           </tr>
           <tr>

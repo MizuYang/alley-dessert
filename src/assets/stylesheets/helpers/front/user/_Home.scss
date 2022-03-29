@@ -91,3 +91,87 @@
 .animation_hover:active {
     transform: scale(1.1);
 }
+//* 針對下方三個卡片輪播調整樣式
+.card_container {
+    position: relative;
+    margin-bottom: 35rem;
+    @include sm {
+      position: static;
+    }
+    @include md {
+      position: relative;
+      left: 25%;
+    }
+    @include lg {
+      left: 5%;
+    }
+    @include xl {
+      left: 10%;
+    }
+    @include xxl {
+      left: 0%;
+    }
+  }
+  .cake_container {
+    @include xs {
+      position: static;
+      margin-bottom: 2rem;
+    }
+    @include sm {
+      position: static;
+      margin-bottom: 2rem;
+    }
+    @include lg {
+      position: absolute;
+      left: 50%;
+    }
+    @include xxl {
+      left: 2%;
+    }
+    @media (min-width: 1500px) {
+      left: 5%;
+    }
+    @media (min-width: 2000px) {
+      left: 25%;
+    }
+  }
+  .pudding_container {
+    @include xs {
+      position: static;
+      margin-bottom: 2rem;
+    }
+    @include sm {
+      position: static;
+      margin-bottom: 2rem;
+    }
+    @include xxl {
+      position: absolute;
+      left: 33%;
+    }
+    @media (min-width: 1500px) {
+      left: 37%;
+    }
+    @media (min-width: 2000px) {
+      left: 42.5%;
+    }
+  }
+  .profiterole_container {
+    @include xs {
+      position: static;
+      margin-bottom: 2rem;
+    }
+    @include sm {
+      position: static;
+      margin-bottom: 2rem;
+    }
+    @include xxl {
+      position: absolute;
+      left: 65%;
+    }
+    @media (min-width: 1500px) {
+      left: 68%;
+    }
+    @media (min-width: 2000px) {
+      left: 60%;
+    }
+  }

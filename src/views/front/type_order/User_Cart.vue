@@ -174,7 +174,7 @@
   <router-link
       v-if="cartData.length > 0"
       to="/user/checkout"
-      class="btn btn-danger send_order fs-5 w-100 d-lg-none" >
+      class="btn btn-danger send_order fs-5 w-100 d-lg-none my-3" >
   下一步</router-link >
 
 <swiper class="mb-5" @getCartList="getCartList" :cartData="cartData"></swiper>
