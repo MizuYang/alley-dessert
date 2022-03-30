@@ -12,7 +12,7 @@
           <div>
             <router-link
               to="/user/products"
-              class="btn btn-outline-primary fs-4 animation_hover"
+              class="btn btn-outline-primary fs-4 animation_hover animation_active"
               @click="(this.emitter.emit('currentPage', 'productList'))"
               >前往商品</router-link
             >
@@ -26,7 +26,7 @@
           <div>
             <router-link
               to="/user/products"
-              class="btn btn-outline-primary fs-4 animation_hover"
+              class="btn btn-outline-primary fs-4 animation_hover animation_active"
               @click="(this.emitter.emit('currentPage', 'productList'))"
               >前往商品</router-link
             >
@@ -40,7 +40,7 @@
           <div>
             <router-link
               to="/user/products"
-              class="btn btn-outline-primary fs-4 animation_hover"
+              class="btn btn-outline-primary fs-4 animation_hover animation_active"
               @click="(this.emitter.emit('currentPage', 'productList'))"
               >前往商品</router-link
             >
