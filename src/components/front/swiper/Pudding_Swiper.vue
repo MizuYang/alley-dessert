@@ -113,7 +113,7 @@ export default {
   mounted () {
     setTimeout(() => {
       this.filter_pudding()
-    }, 2000)
+    }, 3000)
   }
 }
 </script>
@@ -122,5 +122,4 @@ export default {
 @import "@/assets/stylesheets/helpers/loading_css.scss"; //* loading CSS
 @import "@/assets/stylesheets/helpers/_mixin.scss";
 @import "@/assets/stylesheets/helpers/front/_swiper.scss";
-
 </style>

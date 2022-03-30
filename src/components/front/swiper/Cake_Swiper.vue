@@ -113,7 +113,7 @@ export default {
   mounted () {
     setTimeout(() => {
       this.filter_cake()
-    }, 2000)
+    }, 3000)
   }
 }
 </script>
