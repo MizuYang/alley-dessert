@@ -31,11 +31,11 @@
           spaceBetween: 20,
         },
         '992': {
-          slidesPerView: 2,
+          slidesPerView: 3,
           spaceBetween: 40,
         },
         '1200': {
-          slidesPerView: 3,
+          slidesPerView: 4,
           spaceBetween: 40,
         },
         '1400': {
@@ -132,4 +132,9 @@ export default {
 @import "@/assets/stylesheets/helpers/loading_css.scss";
 @import "@/assets/stylesheets/helpers/_rwdMixin.scss";
 @import "@/assets/stylesheets/helpers/front/_swiperMixins.scss";
+.tag{
+  @media (min-width: 1536px) {
+  left: -6.5%;
+  }
+}
 </style>

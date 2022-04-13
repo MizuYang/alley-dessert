@@ -22,23 +22,23 @@
   .tag{
       transform: rotate(-42deg);
       position: absolute;
-      padding: .2rem 1rem;
+      padding: .2rem 1.5rem;
       border-top-left-radius: 40%;
       top: 4%;
       @include xs {
-        left: -6%;
+        left: -7%;
       }
       @include sm {
         left: -4%;
       }
       @include md {
-        left: -5%;
+        left: -6.5%;
       }
       @include lg {
-        left: -6%;
+        left: -7.5%;
       }
       @include xl {
-        left: -7%;
+        left: -8.5%;
       }
   }
   .animation_hover:hover {

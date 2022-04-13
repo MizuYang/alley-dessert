@@ -75,7 +75,7 @@
         </div>
         <button
           type="button"
-          class="btn btn-danger w-100 fs-5 animation_hover animation_active"
+          class="btn btn-danger w-100 fs-5 animation_hover animation_active btn-opacity-none"
           @click="addCart(`${products.id}`)"
         >
           <i class="bi bi-cart4 me-2"></i>加入購物車
