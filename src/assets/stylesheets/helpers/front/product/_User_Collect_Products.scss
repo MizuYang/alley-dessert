@@ -1,0 +1,87 @@
+//* 愛心按鈕
+.collect_btn {
+    color: red;
+    position: absolute;
+    padding: 0 0.1rem;
+    right: 0%;
+    top: 0%;
+}
+.product_img {
+    @include xs {
+        width: 100%;
+    }
+}
+.card {
+    @include xs {
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+}
+.card-body {
+    height: 42%;
+    border-bottom: 0.1rem solid rgba(170, 1, 1, 0.678);
+    @include xs {
+        margin-bottom: 3rem;
+    }
+}
+.badge {
+    position: absolute;
+    left: 0%;
+}
+.bi:active {
+    @include xs {
+        font-size: 1.6rem;
+    }
+    @include sm {
+        font-size: 1.7rem;
+    }
+    @include md {
+        font-size: 1.8rem;
+    }
+}
+.banner::before {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    background-attachment: fixed;
+    background-image: url(https://github.com/MizuYang/hexschool-Vue-week8/blob/main/src/assets/imageUrl/%E5%B0%88%E6%A1%88%E5%9C%96%E7%89%87/%E9%A0%81%E9%9D%A2%E5%9C%96%E7%89%87/%E6%94%B6%E8%97%8F%E7%94%A2%E5%93%81/%E6%94%B6%E8%97%8F%E7%94%A2%E5%93%81.jpeg?raw=true);
+    background-position: 0 40%;
+    background-size: cover;
+    opacity: .6;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    background-repeat: no-repeat;
+    height: 63rem;
+    @include xs {
+        background-position: 40% 60%;
+        height: 76rem;
+    }
+    @include md {
+        background-position: 55% 55%;
+        height: 65rem;
+    }
+    @include xxl {
+        background-position: 55% 35%;
+    }
+    @media (min-width:1536px) {
+        height: 60rem;
+    }
+    @media (min-width:2752px) {
+        height: 63.1rem;
+    }
+}
+.product_img:hover, .card:hover .product_info{
+    display: block;
+}
+.title{
+    margin-top: 0;
+}
+.heartbreak{
+    top: -130%;
+    right: 120%;
+}
+.heart{
+    top: -130%;
+    right: 120%;
+}

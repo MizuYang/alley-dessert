@@ -1,0 +1,100 @@
+.banner-carousel-main {
+    margin-top: 5.5rem;
+    height: calc(100vh - 6.5rem);
+    .banner-main-1 {
+        background-image: url(https://github.com/MizuYang/hexschool-Vue-week8/blob/main/src/assets/imageUrl/%E5%B0%88%E6%A1%88%E5%9C%96%E7%89%87/%E9%A0%81%E9%9D%A2%E5%9C%96%E7%89%87/%E4%B8%BB%E9%A0%81/%E4%B8%BB%E8%A6%81%E8%BC%AA%E6%92%AD/%E4%B8%BB%E9%A0%81%E5%A4%A7%E8%BC%AA%E6%92%AD1.jpeg?raw=true);
+        height: calc(100vh - 5.5rem);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        @include sm {
+            width: 40rem;
+            background-attachment: scroll;
+        }
+        @include md {
+            width: 50rem;
+        }
+        @include lg {
+            width: 100%;
+            background-attachment: fixed;
+        }
+    }
+    .banner-main-2 {
+        background-image: url(https://github.com/MizuYang/hexschool-Vue-week8/blob/main/src/assets/imageUrl/%E5%B0%88%E6%A1%88%E5%9C%96%E7%89%87/%E9%A0%81%E9%9D%A2%E5%9C%96%E7%89%87/%E4%B8%BB%E9%A0%81/%E4%B8%BB%E8%A6%81%E8%BC%AA%E6%92%AD/%E4%B8%BB%E9%A0%81%E5%A4%A7%E8%BC%AA%E6%92%AD2.jpeg?raw=true);
+        height: calc(100vh - 5.5rem);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        @include sm {
+            width: 40rem;
+            background-attachment: scroll;
+        }
+        @include md {
+            width: 50rem;
+        }
+        @include lg {
+            width: 100%;
+            background-attachment: fixed;
+        }
+    }
+    .banner-main-3 {
+        background-image: url(https://github.com/MizuYang/hexschool-Vue-week8/blob/main/src/assets/imageUrl/%E5%B0%88%E6%A1%88%E5%9C%96%E7%89%87/%E9%A0%81%E9%9D%A2%E5%9C%96%E7%89%87/%E4%B8%BB%E9%A0%81/%E4%B8%BB%E8%A6%81%E8%BC%AA%E6%92%AD/%E4%B8%BB%E9%A0%81%E8%BC%AA%E6%92%AD3.jpg?raw=true);
+        height: calc(100vh - 5.5rem);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        @include sm {
+            width: 40rem;
+            background-attachment: scroll;
+        }
+        @include md {
+            width: 50rem;
+        }
+        @include lg {
+            width: 100%;
+            background-attachment: fixed;
+        }
+    }
+    .banner-text {
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 10rem);
+        align-items: center;
+        justify-content: center;
+        margin-top: 5%;
+        & h2,
+        .btn {
+            background: rgba(17, 14, 14, 0.425);
+            padding: 0.5rem;
+        }
+        .animation_hover:hover {
+            color: #f1ebd8;
+            transform: scale(1.05);
+            background: rgba(190, 29, 29, 0.309);
+        }
+        .animation_active:active {
+            background: rgba(17, 14, 14, 0.425);
+            color: #f1ebd8;
+            transform: scale(1.08);
+        }
+    }
+}
+.carousel h2 {
+    font-size: 3rem;
+    @media (max-width: 768px) {
+        & {
+            font-size: 2rem;
+        }
+    }
+}
+.fingerRelative {
+    position: relative;
+}
+.finger {
+    position: absolute;
+    top: 55%;
+    left: 35%;
+    z-index: 500;
+    font-size: 3rem;
+    color: #f1ebd8;
+}

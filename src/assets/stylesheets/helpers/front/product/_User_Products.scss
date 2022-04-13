@@ -1,0 +1,384 @@
+.product_img {
+    height: 15rem;
+    width: 20rem;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+}
+//* 將描述過多的文字截斷
+.card-text {
+    height: 5.85rem;
+    overflow: hidden;
+}
+.addCartBtn {
+    height: 3rem;
+}
+.addCartBtn:hover {
+    background: #c43218c3;
+}
+.animation_hover:hover {
+    transform: scale(1.02);
+    transition: 0.2s;
+}
+.btn.animation_active:active {
+    transform: scale(1.05);
+}
+.collect_btn {
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    padding: 0.2rem;
+    color: #f1ebd8;
+    background: rgba(168, 90, 0, 0.562);
+    border: 0.1rem solid rgba(170, 1, 1, 0.678);
+    border-bottom-left-radius: 50%;
+    & :hover {
+        color: red;
+    }
+}
+.categoryBtn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #f1ebd8;
+    border-bottom-right-radius: 50%;
+    border: 0.1rem solid rgba(170, 1, 1, 0.678);
+    background: rgb(168, 90, 0);
+    &:hover {
+        font-size: 1.005rem;
+        color: #f0ecc8;
+    }
+    &:active {
+        font-size: 1.05rem;
+    }
+}
+//* 產品類別按鈕
+.btn-outline-primary:hover {
+    background: rgb(117, 4, 4);
+    color: #f1ebd8;
+    transform: rotate(-4deg);
+    border-top-left-radius: 33%;
+    border-bottom-right-radius: 33%;
+}
+.btn.activeCategoryStatus {
+    transform: rotate(-6deg);
+    border-top-left-radius: 33%;
+    border-bottom-right-radius: 33%;
+    color: #f0ecc8;
+    background: rgb(117, 4, 4);
+}
+.product_info {
+    height: 14rem;
+    width: 14rem;
+    position: absolute;
+    top: 5%;
+    display: none;
+    @include xs {
+        left: 25%;
+    }
+    @include sm {
+        left: 30%;
+    }
+    @include md {
+        left: 18%;
+    }
+    @include lg {
+        left: 12%;
+    }
+    @include xl {
+        left: 6%;
+    }
+    @include xxl {
+        left: 12%;
+    }
+}
+.searchText {
+    width: 50%;
+}
+//* 類別 fixed 設定
+@include xs {
+    .category {
+        position: fixed;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        top: 4.28rem;
+        z-index: 2;
+        & button{
+            padding: 0;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            line-height: 1.2;
+            height: 5rem;
+            font-size: 1.2rem;
+            background: #000;
+        }
+    }
+    .search{
+        position: fixed;
+        top: 9.32rem;
+        z-index: 2;
+    }
+    .search-icon{
+        font-size: 1.5rem;
+    }
+    .hideTool{
+        position: fixed;
+        top: 9.32rem;
+        right: 2%;
+        width: 7rem;
+        background: #000;
+    }
+    .title{
+        margin-top: 4rem;
+    }
+    .fs-7-rwd{
+        font-size: 1rem!important;
+        line-height: 1.1rem!important;
+    }
+}
+@include sm {
+        .category {
+            position: fixed;
+            top: 7.5%;
+            width: 90%;
+            left:7%;
+            z-index: 2;
+            & button{
+                background: #000;
+            }
+        }
+        .search{
+            position: fixed;
+            top: 14.7%;
+            z-index: 2;
+            & .searchText{
+                width: 10rem;
+            }
+        }
+        .hideTool{
+            position: fixed;
+            top: 14.7%;
+            right: 2%;
+            width: 7rem;
+            background: #000;
+        }
+        .title{
+            margin-top: 4rem;
+        }
+}
+@include md {
+    .category {
+        top: 8.35%;
+        left: 4%;
+        & button{
+            font-size: 1.6rem;
+            height: 5rem;
+        }
+    }
+    .title{
+        margin-top: 3rem;
+    }
+    .search{
+        top: 16.2%;
+        z-index: 1100;
+        width: 27%;
+        right: 69%;
+    }
+    .search-icon{
+        font-size: 1.5rem;
+    }
+    .hideTool{
+        top: 8.35%;
+        right: 3%;
+        width: 5rem;
+        height: 5rem;
+        font-size: 1.2rem;
+    }
+}
+@include lg {
+    .category {
+        top: 7.7%;
+        left: -10%;
+        transform: scale(.8);
+        width: 100%;
+        & button{
+            font-size: 1.4rem;
+            padding: 0 2.2rem;
+        }
+    }
+    .search{
+        top: 8.5%;
+        width: 41%;
+        right: -11%;
+    }
+    .hideTool{
+        right: 0%;
+        font-size: 1rem;
+        height: 4rem;
+        width: 4rem;
+    }
+}
+@include xl {
+    .category {
+        width: 100%;
+    }
+    .search{
+        top: 8.5%;
+        left: 76%;
+    }
+    .title{
+        margin-top: 1rem;
+    }
+}
+@include xxl {
+    .search{
+        left: 79%;
+    }
+}
+@media (min-width: 1024px) {
+    .category {
+        top: 4.85rem;
+        left: -6.5%;
+    }
+    .search{
+        top: 5.35rem;
+        height: 4rem;
+        left: 73.5%;
+    }
+    .search-icon{
+        font-size: 2.1rem;
+    }
+    .searchText.searchText{
+        width: 38%;
+    }
+    .hideTool{
+        top: 5.35rem;
+        right: 0%;
+    }
+}
+@media (min-width: 1536px) {
+    .category {
+        top: 4.85rem;
+        left: -3.2%;
+    }
+    .search{
+        top: 5.35rem;
+        left: 78%;
+    }
+    .search-icon{
+        font-size: 2.6rem;
+    }
+    .searchText.searchText{
+        width: 26%;
+    }
+    .hideTool{
+        top: 5.3rem;
+        right: 2.5%;
+    }
+}
+@media (min-width: 2752px) {
+    .category {
+        top: 4.87rem;
+        left: 16.2%;
+    }
+    .search{
+        left: 65.6%;
+    }
+    .search-icon{
+        font-size: 2.7rem;
+    }
+    .searchText.searchText{
+        width: 14.5%;
+    }
+    .hideTool{
+        right: 23.5%;
+    }
+}
+@media (min-width: 3440px) {
+    .category {
+        top: 4.88rem;
+        left: 21%;
+    }
+    .search{
+        top: 5.5rem;
+        left: 62.5%;
+    }
+    .searchText.searchText{
+        width: 10.5%;
+    }
+    .hideTool{
+        top: 5.5rem;
+        right: 29%;
+    }
+}
+@media (max-width:376px) {
+    .category {
+        top: 10.1%;
+    }
+    .search{
+        top: 22.1%;
+    }
+    .hideTool{
+        position: fixed;
+        top: 22.1%;
+        right: 2%;
+        width: 7rem;
+    }
+}
+.card-body {
+    border-left: 0.1rem solid rgba(170, 1, 1, 0.678);
+    border-right: 0.1rem solid rgba(170, 1, 1, 0.678);
+    height: 29%;
+}
+.card-footer {
+    border-right: 0.1rem solid rgba(170, 1, 1, 0.678);
+    border-left: 0.1rem solid rgba(170, 1, 1, 0.678);
+    border-bottom: 0.1rem solid rgba(170, 1, 1, 0.678);
+}
+.card {
+    overflow: hidden;
+    &:hover .product_info{ //* 顯示 "查看更多"
+        display: block;
+    }
+    &:hover .card-title{
+        font-weight: bold;
+    }
+    &:hover .card-footer, &:hover .card-body {
+        background: rgba(71, 14, 14, 0.72);
+    }
+    &:hover .product_img{
+        transform: scale(1.02);
+    }
+}
+.hightLight{
+    display: none;
+}
+.heart {
+    display: none;
+    transition: all 0.5s;
+    color: red;
+    font-size: 14rem;
+    position: absolute;
+    top: -20%;
+    right: 13%;
+}
+.heartbreak {
+    display: none;
+    transition: all 0.5s;
+    color: red;
+    font-size: 14rem;
+    position: absolute;
+    top: -20%;
+    right: 13%;
+}
+.category{
+    background: #000;
+}
+.search{
+    background: #000;
+    @media (min-width: 1024px) {
+        background: none;
+    }
+}

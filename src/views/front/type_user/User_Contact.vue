@@ -1,17 +1,16 @@
 <template>
-  <div class="banner_main  img-fluid"></div>
-  <div class="contact container  mt-8 mt-sm-10">
-    <h2 class="title text-center mb-10 pt-3">
+  <div class="banner_main img-fluid"></div>
+  <div class="contact container mt-8 mt-sm-10">
+    <h2 class="title text-center mb-5 pt-3">
       <span class="decorate">連絡我們</span>
     </h2>
-
     <div class="row justify-content-center form-container">
       <Form
         action="/"
         v-slot="{ errors }"
         class="col-md-6"
         ref="form"
-        @submit="send_question"
+        @submit="sendQuestion"
       >
         <div class="mb-1">
           <label for="name"> 姓名 </label>
@@ -41,7 +40,6 @@
           </Field>
           <ErrorMessage name="信箱" class="invalid-feedback"></ErrorMessage>
         </div>
-
         <div class="mb-1">
           <label for="tel" class="form-label">電話</label>
           <Field
@@ -61,7 +59,7 @@
           <Field
             id="category"
             name="類別"
-            class="form-control"
+            class="form-control form-select"
             :class="{ 'is-invalid': errors['類別'] }"
             rules="required"
             as="select"
@@ -96,7 +94,7 @@
           ></Field>
           <ErrorMessage name="留言" class="invalid-feedback"></ErrorMessage>
         </div>
-        <div class="text-end">
+        <div class="text-center">
           <button
             type="submit"
             class="btn btn-danger send-btn mb-4"
@@ -122,6 +120,7 @@
     </div>
   </Loading>
 </template>
+
 <script>
 export default {
   data () {
@@ -129,17 +128,17 @@ export default {
       isLoading: false
     }
   },
+
   methods: {
-    //* 電話驗證
     isPhone (value) {
       const phoneNumber = /^(09)[0-9]{8}$/
-      return phoneNumber.test(value) ? true : '請輸入 09 開頭的正確電話號碼'
+      return phoneNumber.test(value) ? true : '*請輸入 09 開頭的正確電話號碼'
     },
-    send_question () {
+    sendQuestion () {
       this.isLoading = true
       setTimeout(() => {
         this.$httpMessageState(true, '送出內容')
-        this.$router.push('get_Contact')
+        this.$router.push('/sendMessage')
         this.isLoading = false
       }, 1500)
     }
@@ -148,8 +147,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/stylesheets/helpers/_mixin.scss";
-@import "@/assets/stylesheets/helpers/front/_pseudo_el_title.scss"; //* 偽元素標題 CSS
-@import "@/assets/stylesheets/helpers/loading_css.scss"; //* loading CSS
-@import "@/assets/stylesheets/helpers/front/user/_Contact.scss";
+@import "@/assets/stylesheets/helpers/_rwdMixin.scss";
+@import "@/assets/stylesheets/helpers/front/_pseudo_el_title.scss";
+@import "@/assets/stylesheets/helpers/loading_css.scss";
+@import "@/assets/stylesheets/helpers/front/user/_User_Contact.scss";
 </style>

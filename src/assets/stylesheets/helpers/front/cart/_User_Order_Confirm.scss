@@ -1,0 +1,17 @@
+.animation_hover:hover {
+    transform: scale(1.02);
+}
+.active_bigger:active {
+    transform: scale(1.05);
+}
+.bi-check2{
+    color: green;
+}
+.table{
+  @include lg {
+    width: 50%;
+  }
+}
+.table > :not(caption) > * > * {
+  padding: .5rem 0;
+}

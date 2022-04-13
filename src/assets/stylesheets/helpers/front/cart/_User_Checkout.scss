@@ -1,0 +1,9 @@
+.form_container {
+    @include xs {
+        padding: 0 1.5rem;
+    }
+    @include sm {
+        padding: 0 1.5rem;
+    }
+    
+}

@@ -3,24 +3,37 @@
     <h2 class="title text-center mb-5 pt-3">
       <span class="decorate">購物車</span>
     </h2>
-
-    <noOrder v-if="cartData.length === 0"></noOrder>
-
-    <div class="table-responsive" v-else>
-      <timeLine :time_line="time_line"></timeLine>
-
-      <table class="table table-hover align-middle text-center text-primary">
+    <CartNoOrder v-if="cartData.length === 0" />
+    <div v-else>
+      <CartTimeLine />
+      <div class="d-flex mb-2">
+        <button
+            v-if="checkbox_productId.length > 0"
+            type="button"
+            class="btn btn-outline-danger active_bigger animation_hover position-relative"
+            @click="openDeleteModal(product,'勾選刪除')">
+            刪除
+            <span class="badge position-absolute bg-danger top-0 start-100 translate-middle rounded-pill">{{ checkbox_productId.length }}</span>
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-danger active_bigger animation_hover d-block ms-auto"
+          @click="openDeleteModal">
+          全部刪除
+        </button>
+       </div>
+      <table class="table table-hover align-middle text-center text-primary d-none d-lg-table">
         <thead class="table-dark text-primary">
             <tr>
-              <th style="width: 100px">
+              <th style="width: 50px">
                 <span class="bi bi-check2-square"></span>
               </th>
-              <th><i class="bi bi-file-earmark-image"></i> 圖片</th>
+              <th style="width: 100px"><i class="bi bi-file-earmark-image"></i> 圖片</th>
               <th><i class="bi bi-bag-heart"></i> 產品名稱</th>
-              <th><i class="bi bi-plus-slash-minus"></i> 購買數量</th>
+              <th style="width: 100px"><i class="bi bi-plus-slash-minus"></i> 購買數量</th>
               <th><i class="bi bi-coin"></i> 價格</th>
               <th><i class="bi bi-calculator"></i> 小計</th>
-              <th><i class="bi bi-trash3"></i> </th>
+              <th style="width: 50px"><i class="bi bi-trash3"></i> </th>
             </tr>
         </thead>
         <tbody class="text-nowrap">
@@ -29,12 +42,12 @@
                 <input
                   type="checkbox"
                   v-model="product.checkbox"
-                  @click="checkbox(product.checkbox, product.id)"
+                  @click="checkboxGetProductId(product.checkbox, product.id)"
                   class="form-check-input bg-dark border"/>
               </td>
               <td>
                 <router-link
-                  :to="`/user/one_product/${product.product_id}`"
+                  :to="`/one_product/${product.product_id}`"
                   class="
                     product_img
                     card-img-top
@@ -58,211 +71,201 @@
               </td>
               <td>
                 <div class="d-flex align-items-center">
-                  <input type="button" class="btn product_numBtn btn-outline-primary active_bigger"
-                  value="－" :disabled="product.qty <= 1" @click="update_product_num('cut', product)"/>
+                  <input type="button" class="btn productsQtyBtn btn-outline-primary active_bigger"
+                  value="－" :disabled="product.qty <= 1" @click="updateProductQty('cut', product)"/>
                   <input
                     type="text"
-                    class="product_numText mx-1 fs-4"
+                    class="productsQtyText mx-1 fs-4"
                     :value="product.qty" readonly/>
                   <input
                     type="button"
-                    class="btn product_numBtn btn-outline-primary active_bigger"
+                    class="btn productsQtyBtn btn-outline-primary active_bigger"
                     value="＋"
-                    @click="update_product_num('add', product)"/>
+                    @click="updateProductQty('add', product)"/>
                 </div>
               </td>
               <td>
-                <del style="opacity: 0.8"
-                  >原價 {{ product.product.origin_price }} 元</del>
+                <del class="opacity-50"
+                  >${{ product.product.origin_price }}</del>
                 <br />
-                <strong>優惠價<span class="text-danger fs-5">
-                    {{ product.product.price }} </span>元</strong>
+                <strong><span class="fs-5">
+                  $ {{ product.product.price }} </span></strong>
               </td>
-              <td >
-                <p class="border-bottom mx-auto" style="width:100px">價格*數量</p>
-                <p>{{ $thousandths(product.total) }} 元</p>
+              <td>
+                <p>{{ $thousandths(product.total) }} </p>
               </td>
               <td>
                 <input
                   type="button"
                   class="btn btn-outline-danger active_bigger"
-                  @click="open_delete_product(product, '刪除單一產品')"
+                  @click="openDeleteModal(product, '刪除單一產品')"
                   value="X"/>
               </td>
             </tr>
         </tbody>
-        <tfoot>
-          <tr>
-            <td>
-              <button
-                v-if="checkbox_productId.length > 0"
-                style="width: 60px"
-                type="button"
-                class="btn btn-outline-danger active_bigger animation_hover"
-                @click="open_delete_product(product,'勾選刪除')">
-                刪除
-              </button>
-            </td>
-            <td class="rwd_hide_table_lg">
-              <button
-                type="button"
-                class="btn btn-outline-danger active_bigger animation_hover"
-                @click="open_delete_product">
-                全部刪除
-              </button>
-            </td>
-            <td></td>
-            <td>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td><label for="couponCode">輸入優惠碼</label></td>
-            <td></td>
-            <td v-show="coupon_final_total > 0" class="text-success ">
-                <span class="badge bg-primary text-success"
-                >折扣  {{ coupon_discount  }} %
-                </span>
-            </td>
-            <td v-if="coupon_final_total > 0">總價：<span class="text-success fs-5 fw-bold">{{ $thousandths(coupon_final_total) }} </span> 元</td>
-            <td></td>
-            <td class="fs-5 text-primary " v-if="!coupon_final_total"> 總價：{{ $thousandths(total) }} 元 </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <router-link
-                to="/user/products"
-                class="btn btn-secondary active_bigger fs-5 animation_hover"
-                >繼續購物</router-link>
-            </td>
-            <td><input
-                type="text"
-                v-model="couponCode"
-                class="text-center"
-                id="couponCode"
-                style="width: 140px"
-              /></td>
-            <td></td>
-            <td>
-                <button
-                type="button"
-                class="btn btn-success active_bigger animation_hover"
-                @click="use_coupon" >
-                使用優惠券
-              </button>
-            </td>
-            <td>
-              <router-link
-                to="/user/checkout"
-                class="btn btn-danger send_order fs-5 rwd_hide">
-                下一步</router-link>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tfoot>
       </table>
+      <div class="border p-2 position-relative mb-3 d-lg-none" v-for="(product, index) in cartData" :key="product.id" :class="{ 'finalSteps-bg': product.checkbox }">
+          <p class="text-center border-bottom pb-1">{{ index + 1 }}. {{ product.product.title }}</p>
+          <div class="d-flex justify-content-center">
+            <div class="my-auto">
+            <input
+              type="checkbox"
+              v-model="product.checkbox"
+              @click="checkboxGetProductId(product.checkbox, product.id)"
+              class="form-check-input bg-dark border me-2"/>
+          <input
+              type="button"
+              class="btn btn-outline-danger active_bigger position-absolute top-0 end-0"
+              style="font-size:1.26rem"
+              @click="openDeleteModal(product, '刪除單一產品')"
+              value="X"/>
+          </div>
+          <div>
+            <router-link
+                  :to="`/one_product/${product.product_id}`"
+                  class="
+                    product_img product_imgRwd
+                    card-img-top
+                    animation_hover
+                    d-block me-2
+                    text-decoration-none
+                    img_hover img-fluid" :style="{ backgroundImage: `url(${product.product.imageUrl})` }">
+                  <div class="text-start">
+                    <span type="button" class="badge bg-primary text-dark tag" title="篩選類別">
+                      {{ product.product.category }}
+                    </span>
+                  </div>
+                  <img class="product_info" alt="顯示產品細節" src="@/assets/imageUrl/images/product_info.png">
+            </router-link>
+          </div>
+          <div class="d-flex flex-column ">
+            <p>類別：{{ product.product.category }}</p>
+            <div class="d-flex">
+              <del class="opacity-50"
+              >${{ product.product.origin_price }}</del>
+              <br />
+              <strong><span class="fs-5 ms-3">
+                $ {{ product.product.price }} </span></strong>
+            </div>
+                <p>小計：{{ $thousandths(product.total) }} 元</p>
+            <div class="d-flex  mt-auto">
+                    <input type="button" class="btn productsQtyBtn btn-outline-primary active_bigger"
+                    value="－" :disabled="product.qty <= 1" @click="updateProductQty('cut', product)"/>
+                    <input
+                      type="text"
+                      class="productsQtyText mx-1 fs-4"
+                      :value="product.qty" readonly/>
+                    <input
+                      type="button"
+                      class="btn productsQtyBtn btn-outline-primary active_bigger"
+                      value="＋"
+                      @click="updateProductQty('add', product)"/>
+            </div>
+          </div>
+          </div>
+      </div>
+      <div class="d-lg-flex justify-content-between mb-3 finalSteps-bg d-none d-lg-block">
+        <router-link
+          to="/products"
+          class="btn btn-secondary fs-4 active_bigger animation_hover">上一頁
+        </router-link>
+        <div class="d-flex">
+          <p class="mt-auto me-5">購買了 <span class="fs-4">{{ cartData.length }}</span> 個產品</p>
+          <p class="mt-auto me-5">總金額：<span class="fs-4 fw-bold">{{ $thousandths(total) }} </span> 元</p>
+          <router-link
+            to="/checkout"
+            class="btn btn-danger fs-4 sendOrderBtn rwd_hide">下一步
+          </router-link>
+        </div>
+      </div>
     </div>
   </div>
+<div class=" d-lg-none text-center mt-5">
+  <p class="mt-auto me-5 finalSteps-bg w-100 mb-0">購買了 <span class="fs-4">{{ cartData.length }}</span> 個產品</p>
+  <p class="mt-auto me-5 finalSteps-bg w-100 mb-0">總金額：<span class="fs-4 fw-bold">{{ $thousandths(total) }} </span> 元</p>
   <router-link
       v-if="cartData.length > 0"
-      to="/user/checkout"
-      class="btn btn-danger send_order fs-5 w-100 d-lg-none my-3" >
-  下一步</router-link >
-
-<swiper class="mb-5" @getCartList="getCartList" :cartData="cartData"></swiper>
-
-   <deleteProductModal @getCartList="getCartList"></deleteProductModal>
-    <Loading v-model:active="isLoading">
-    <div class="cssload-container">
-      <div class="cssload-dot"></div>
-      <div class="step" id="cssload-s1"></div>
-      <div class="step" id="cssload-s2"></div>
-      <div class="step" id="cssload-s3"></div>
-    </div>
-  </Loading>
+      to="/checkout"
+      class="btn btn-danger sendOrderBtn fs-4 w-100">下一步
+  </router-link>
+  <router-link
+    to="/products"
+    class="btn btn-secondary fs-4 active_bigger animation_hover w-100 my-5">上一頁
+  </router-link>
+</div>
+<SwiperCartOneProduct class="mb-5" @getCartList="getCartList" :cartData="cartData" />
+<CartDeleteProductModal @getCartList="getCartList" />
+<Loading v-model:active="isLoading">
+<div class="cssload-container">
+  <div class="cssload-dot"></div>
+  <div class="step" id="cssload-s1"></div>
+  <div class="step" id="cssload-s2"></div>
+  <div class="step" id="cssload-s3"></div>
+</div>
+</Loading>
 </template>
+
 <script>
 //* 時間軸、沒訂單時的產品頁面引導
-import noOrder from '@/components/front/cart/Cart_No_Order.vue'
-import timeLine from '@/components/front/cart/Cart_TimeLine.vue'
-import deleteProductModal from '@/components/front/modal/Front_Delete_Product.vue'
-import swiper from '@/components/front/swiper/Swiper.vue'
+import CartNoOrder from '@/components/front/cart/CartNoOrder.vue'
+import CartTimeLine from '@/components/front/cart/CartTimeLine.vue'
+import CartDeleteProductModal from '@/components/front/modal/CartDeleteProductModal.vue'
+import SwiperCartOneProduct from '@/components/front/swiper/SwiperCartOneProduct.vue'
 export default {
   inject: ['emitter'],
+
   components: {
-    timeLine,
-    noOrder,
-    deleteProductModal,
-    swiper
+    CartTimeLine,
+    CartNoOrder,
+    CartDeleteProductModal,
+    SwiperCartOneProduct
   },
+
   data () {
     return {
       cartData: [],
       checkbox_productId: [],
-      couponCode: 'my_coupon',
-      coupon_final_total: 0,
       total: 0,
-      isLoading: false,
-      time_line: 0,
-      coupon_discount: 0 //* 折扣百分比
+      isLoading: false
     }
   },
+
   methods: {
-    //* 取得購物車
-    getCartList (checkboxDeleteStatus) {
+    getCartList () {
       this.isLoading = true
       const api = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
       this.$http.get(api).then((res) => {
         this.isLoading = false
         this.cartData = res.data.data.carts
-        this.price_total()
-
-        if (checkboxDeleteStatus) { //* 如果刪除勾選商品，就讓購物車頁面隱藏刪除勾選按鈕
-          this.checkbox_productId = []
-        }
-        setTimeout(() => {
-          this.time_line = 1
-        }, 1000)
+        this.total = res.data.data.total
+        this.checkbox_productId = [] //* 勾選產品初始化
       })
     },
-    //* 開啟刪除 modal
-    open_delete_product (product, status) {
+    openDeleteModal (product, status) {
       const data = {}
       if (status === '勾選刪除') {
         data.id = this.checkbox_productId
         data.status = '勾選刪除'
-        this.emitter.emit('open_delete_product', data)
+        this.emitter.emit('openDeleteModal', data)
       } else if (status === '刪除單一產品') {
         data.product = product
         data.status = '刪除單一產品'
-        this.emitter.emit('open_delete_product', data)
+        this.emitter.emit('openDeleteModal', data)
       } else {
-        this.emitter.emit('open_delete_product')
+        this.emitter.emit('openDeleteModal')
       }
     },
     //* 勾選時把產品 ID 存起來，如果勾選取消就刪掉 id
-    checkbox (status, id) {
-      //* 打勾時就把 id 推到資料集
+    checkboxGetProductId (status, id) {
       if (!status) {
         this.checkbox_productId.push(id)
       } else if (status) {
-        // *如果取消打勾的話，就用 findIndex 比對取消的 ID 是資料集的第幾筆，再將那一筆刪除
-        const deleteId = this.checkbox_productId.findIndex((productId) => {
-          return productId === id
-        })
+        // *取消打勾，就用 findIndex 比對取消的 ID 是資料集的第幾筆，再將那筆刪除
+        const deleteId = this.checkbox_productId.findIndex((productId) => productId === id)
         this.checkbox_productId.splice(deleteId, 1)
       }
     },
-    //* 增加產品數量
-    update_product_num (status, product) {
+    updateProductQty (status, product) {
       this.isLoading = true
       let num = 0
       if (status === 'add') {
@@ -280,32 +283,9 @@ export default {
         this.$httpMessageState(res.data.success, '更新數量')
         this.getCartList()
       })
-    },
-    //* 使用優惠券
-    use_coupon () {
-      this.isLoading = true
-      const data = {
-        code: this.couponCode
-      }
-      const api = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/coupon`
-      this.$http
-        .post(api, { data: data })
-        .then((res) => {
-          this.isLoading = false
-          this.$httpMessageState(res.data.success, '使用優惠券')
-          this.coupon_final_total = res.data.data.final_total
-          this.coupon_discount = this.coupon_final_total / this.total * 100
-        })
-    },
-    //* 算出總價格
-    price_total () {
-      let num = 0
-      this.cartData.forEach((product) => {
-        num += product.total
-      })
-      this.total = num
     }
   },
+
   mounted () {
     this.getCartList()
   }
@@ -313,8 +293,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/stylesheets/helpers/_mixin.scss";
-@import "@/assets/stylesheets/helpers/loading_css.scss"; //* loading CSS
+@import "@/assets/stylesheets/helpers/_rwdMixin.scss";
+@import "@/assets/stylesheets/helpers/loading_css.scss";
 @import '@/assets/stylesheets/helpers/front/_pseudo_el_title.scss';
-@import "@/assets/stylesheets/helpers/front/cart/_Cart.scss";
+@import "@/assets/stylesheets/helpers/front/cart/_User_Cart.scss";
 </style>

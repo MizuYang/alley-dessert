@@ -1,7 +1,7 @@
 <template>
-  <div class="container mt-10 mb-5">
+  <div class="container mt-9 mt-md-10 mb-5">
     <h2 class="title text-center mb-5 ">
-      <span class="decorate">{{ product.title }}</span>
+      <span class="decorate"> <span class="">{{ product.title }}</span> </span>
     </h2>
     <div class="row">
       <div class="col-12 col-lg-7 d-flex">
@@ -50,20 +50,27 @@
             <p>{{ product.description }}</p>
           </li>
           <li>
-            <div class="d-flex justify-content-between align-items-end">
-              <del style="opacity: 0.8">原價 {{ product.origin_price }} 元</del>
-              <strong class="ms-auto fs-3"
-                >優惠價<span class="text-danger fs-3 mb-auto">
+            <div class="d-flex justify-content-between align-items-center">
+              <del style="opacity: 0.8" class="rwdHide me-3">原價 {{ product.origin_price }} 元</del>
+              <strong class="me-auto fs-3"
+                ><span class="text-danger fs-3 mb-auto">
                   {{ product.price }} </span
-                >元</strong
-              >
+                >元</strong>
+                <input type="button" class="btn productsQtyBtn btn-outline-primary"
+                  value="－" :disabled="addProductData.qty <= 1" @click="addProductData.qty -= 1"/>
+                <input type="number" class="productQtyText text-center" readonly  v-model="addProductData.qty">
+                <input
+                    type="button"
+                    class="btn productsQtyBtn btn-outline-primary"
+                    value="＋" @click="addProductData.qty += 1"
+                    />
             </div>
           </li>
         </ul>
         <div class="card-foot">
           <div class="d-flex justify-content-between align-items-end">
             <button
-              type="submit"
+              type="button"
               class="
                 btn btn-outline-primary
                 send-btn
@@ -72,14 +79,14 @@
                 animation_hover
               "
               title="返回產品列表"
-              @click="$router.push('/user/products')"
+              @click="$router.go(-1)"
             >
               <i class="bi bi-door-open"></i>
-              返回購物
+              返回
             </button>
 
             <button
-              type="submit"
+              type="button"
               class="ms-auto btn btn-danger active_bigger fs-4 animation_hover"
               title="結帳"
               @click="addCart(product.id)"
@@ -92,7 +99,7 @@
       </div>
     </div>
   </div>
-  <swiper :product="product" class="mb-5"></swiper>
+  <SwiperCartOneProduct :product="product" class="mb-5" />
   <Loading v-model:active="isLoading">
     <div class="cssload-container">
       <div class="cssload-dot"></div>
@@ -104,25 +111,27 @@
 </template>
 
 <script>
-import swiper from '@/components/front/swiper/Swiper.vue'
+import SwiperCartOneProduct from '@/components/front/swiper/SwiperCartOneProduct.vue'
 export default {
   components: {
-    swiper
+    SwiperCartOneProduct
   },
+
   inject: ['emitter'],
+
   data () {
     return {
       product: [],
-      add_product_Data: {
+      addProductData: {
         product_id: '',
         qty: 1
       },
       isLoading: false
     }
   },
+
   methods: {
-    //* 取得產品
-    get_products () {
+    getProducts () {
       this.isLoading = true
       const id = this.$route.params.id
       const api = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/product/${id}`
@@ -131,26 +140,28 @@ export default {
         this.product = res.data.product
       })
     },
-    //* 加入購物車
     addCart (id) {
       this.isLoading = true
-      this.add_product_Data.product_id = id
+      this.addProductData.product_id = id
       const api = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
-      this.$http.post(api, { data: this.add_product_Data }).then((res) => {
+      this.$http.post(api, { data: this.addProductData }).then((res) => {
         this.isLoading = false
+        this.addProductData.qty = 1
         this.$httpMessageState(res.data.success, '加入購物車')
-        this.emitter.emit('get_cart') //* 請 Navbar更新數字
+        this.emitter.emit('get_cart') //*  Navbar更新
       })
     }
   },
+
   mounted () {
-    this.get_products()
+    this.getProducts()
   }
 }
 </script>
+
 <style lang="scss" scoped>
-@import "@/assets/stylesheets/helpers/_mixin.scss";
-@import '@/assets/stylesheets/helpers/front/_pseudo_el_title.scss'; //* 偽元素標題 CSS
-@import "@/assets/stylesheets/helpers/loading_css.scss"; //* loading CSS
-@import "@/assets/stylesheets/helpers/front/product/_One_Product.scss";
+@import "@/assets/stylesheets/helpers/_rwdMixin.scss";
+@import '@/assets/stylesheets/helpers/front/_pseudo_el_title.scss';
+@import "@/assets/stylesheets/helpers/loading_css.scss";
+@import "@/assets/stylesheets/helpers/front/product/_User_One_Product.scss";
 </style>

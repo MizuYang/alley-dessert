@@ -1,0 +1,64 @@
+.contact {
+    position: relative;
+    z-index: 1;
+}
+.banner_main::before {
+    background-image: url('https://github.com/MizuYang/hexschool-Vue-week8/blob/main/src/assets/imageUrl/%E5%B0%88%E6%A1%88%E5%9C%96%E7%89%87/%E9%A0%81%E9%9D%A2%E5%9C%96%E7%89%87/%E8%81%AF%E7%B5%A1%E6%88%91%E5%80%91/%E8%81%AF%E7%B5%A1%E6%88%91%E5%80%91.png?raw=true');
+    content: '';
+    background-position: center;
+    background-size: cover;
+    position: fixed;
+    height: calc(120%);
+    width: 100%;
+    opacity: 0.6;
+    z-index: -1;
+    @include xs {
+        top: 0%;
+        background-size: cover;
+        height: 77rem;
+    }
+    @include sm {
+        top: 0%;
+        background-size: cover;
+        height: 85rem;
+    }
+    @include md {
+        height: 67rem;
+    }
+    @media (min-width: 1024px) {
+        height: 86rem;
+    }
+    @media (min-width: 1536px) {
+        height: 61rem;
+    }
+    @media (min-width: 2752px) {
+        height: 63.1rem;
+    }
+    @media (min-width: 3440px) {
+        height: 90rem;
+    }
+}
+.form-container {
+    margin: 0 auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    @include xs {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    @include md {
+        padding: 0;
+        width: 100%;
+    }
+}
+.invalid-feedback {
+    color: red;
+    font-weight: bold;
+    font-style: italic;
+    background: rgba(0, 0, 0, 0.531);
+    display: inline;
+    padding: 0.1rem;
+}
+.send-btn:active {
+    transform: scale(1.05);
+}

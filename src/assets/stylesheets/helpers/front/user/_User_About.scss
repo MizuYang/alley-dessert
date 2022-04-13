@@ -1,0 +1,19 @@
+.story-img-sm {
+    width: 25rem;
+    height: 25rem;
+}
+h3 {
+    border-bottom: 1px solid #f1ebd8;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+}
+.wrap {
+    @include xs {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    @include sm {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}

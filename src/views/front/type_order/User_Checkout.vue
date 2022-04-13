@@ -3,34 +3,26 @@
     <h2 class="title text-center mb-5 pt-3">
       <span class="decorate">填寫資料</span>
     </h2>
-
-    <timeLine :time_line="time_line"></timeLine>
-
+    <CartTimeLine />
     <div class="form_container">
-      <userForm ></userForm>
+      <UserCheckoutForm />
     </div>
   </div>
 </template>
+
 <script>
-import timeLine from '@/components/front/cart/Cart_TimeLine.vue'
-import userForm from '@/components/front/cart/Checkout.vue/Checkout_form.vue'
+import CartTimeLine from '@/components/front/cart/CartTimeLine.vue'
+import UserCheckoutForm from '@/components/front/cart/UserCheckoutForm.vue'
 export default {
   components: {
-    timeLine,
-    userForm
-  },
-  data () {
-    return {
-      time_line: 0
-    }
-  },
-  mounted () {
-    this.time_line = 2
+    CartTimeLine,
+    UserCheckoutForm
   }
 }
 </script>
+
 <style lang="scss" scoped>
-@import '@/assets/stylesheets/helpers/_mixin.scss';
-@import '@/assets/stylesheets/helpers/front/_pseudo_el_title.scss'; //* 偽元素標題 CSS
-@import "@/assets/stylesheets/helpers/front/cart/order/_Checkout.scss";
+@import "@/assets/stylesheets/helpers/_rwdMixin.scss";
+@import '@/assets/stylesheets/helpers/front/_pseudo_el_title.scss';
+@import "@/assets/stylesheets/helpers/front/cart/_User_Checkout.scss";
 </style>
