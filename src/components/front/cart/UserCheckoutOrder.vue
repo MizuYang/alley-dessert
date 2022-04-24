@@ -1,5 +1,5 @@
 <template>
-  <div class="col-12 border pt-5">
+  <div class="col-12 border p-4">
     <h3 class="border-bottom text-center pb-2 mb-3">訂單明細</h3>
     <div
       v-for="product in cartData"
@@ -135,25 +135,24 @@
         >上一步</router-link
       >
     </div>
-    <div class="d-flex justify-content-between">
-      <p class="text-center me-5" v-if="has_coupon">
-        您省下了 <span class="finalSteps-text-fs-3">{{
+    <div class="d-flex justify-content-between align-items-center">
+      <p class="text-center me-5 mb-0" v-if="has_coupon">
+        您省下了 {{
           $thousandths(coupon_price)
-        }}</span>
+        }}
         元
       </p>
-      <p class="text-center me-5">
+      <p class="text-center me-5 mb-0">
         總金額：
         <span
           :class="{ 'text-success': has_coupon }"
-          class="finalSteps-text-fs-3 fw-bold"
           >{{ $thousandths(total) }}</span
         >
         元
       </p>
       <button
         type="submit"
-        class="btn btn-danger send-btn active_bigger fs-4 animation_hover"
+        class="btn btn-danger send-btn active_bigger btn-lg fs-4 animation_hover"
         title="前往結帳流程"
         v-if="cartData.length > 0"
       >

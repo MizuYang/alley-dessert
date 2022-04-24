@@ -1,6 +1,6 @@
 <template>
   <div class="container text-center" v-if="swiperShow">
-    <h3 class="badge fs-5 text-primary mb-4 "> <i class="bi bi-suit-heart-fill text-danger"></i> 熱門商品</h3>
+    <h3 class="text-primary mb-4">熱門商品</h3>
     <Swiper
       ref="swiper"
       :slides-per-view="3"

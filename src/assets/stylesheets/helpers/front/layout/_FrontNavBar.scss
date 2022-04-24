@@ -5,12 +5,12 @@
 .nav-item a:active {
     transform: scale(1.2);
 }
-.nav-item{
-    @media (max-width:992px) {
+.nav-item {
+    @media (max-width: 992px) {
         margin: 0;
         font-size: 1.1rem;
     }
-    @media (max-width:1024px) {
+    @media (max-width: 1024px) {
         margin: 0;
         font-size: 1rem;
     }
@@ -18,7 +18,7 @@
 .navbar {
     background: rgb(0, 0, 0);
     @include xs {
-        padding-bottom: .7rem;
+        padding-bottom: 0.7rem;
     }
     & .navbar-brand.logoRwdHide:hover {
         transform: scale(1.05);
@@ -35,44 +35,47 @@
         overflow: hidden;
         white-space: nowrap;
     }
-    padding: 0 ;
+    padding: 0;
 }
-.logoRwdHide{
-    @media (max-width:576px) {
+.logoRwdHide {
+    @media (max-width: 576px) {
         display: none;
     }
 }
-.cartProductsQtyBadge{
-    margin-top: .5rem;
+.cartProductsQtyBadge {
+    margin-top: 0.5rem;
     @include xs {
-        font-size: .4rem;
+        font-size: 0.4rem;
         left: 55%;
     }
     @include sm {
-        font-size: .6rem;
+        font-size: 0.6rem;
         left: 53%;
     }
     @include lg {
-        font-size: .8rem;
+        font-size: 0.8rem;
         left: 90%;
     }
 }
 //* 漢堡選單 放大
-.navbar-toggler .bi::before{
+.navbar-toggler .bi::before {
     font-size: 3rem;
 }
-.currentPage{
+.page-hide-border {
+    border-bottom: 3px solid rgba(0, 0, 0, 0);
+}
+.currentPage {
     border-bottom: 3px solid #f1ebd8;
     transform: scale(1.1);
 }
-.cartQtyRwd{
-    margin-top: .6rem;
+.cartQtyRwd {
+    margin-top: 0.6rem;
     @include xs {
-        font-size: .7rem;
+        font-size: 0.7rem;
         right: -20%;
     }
     @include md {
-        font-size: .8rem;
+        font-size: 0.8rem;
         right: -20%;
     }
 }

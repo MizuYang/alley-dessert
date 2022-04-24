@@ -169,9 +169,9 @@
           to="/products"
           class="btn btn-secondary fs-4 active_bigger animation_hover">上一頁
         </router-link>
-        <div class="d-flex">
-          <p class="mt-auto me-5">購買了 <span class="fs-4">{{ cartData.length }}</span> 個產品</p>
-          <p class="mt-auto me-5">總金額：<span class="fs-4 fw-bold">{{ $thousandths(total) }} </span> 元</p>
+        <div class="d-flex align-items-center">
+          <p class="me-5 mb-0">購買了 {{ cartData.length }} 個產品</p>
+          <p class="me-5 mb-0">總金額：<span class="fw-bold">{{ $thousandths(total) }} </span> 元</p>
           <router-link
             to="/checkout"
             class="btn btn-danger fs-4 sendOrderBtn rwd_hide">下一步

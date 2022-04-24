@@ -1,49 +1,56 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-secondary fixed-top">
-    <div class="container">
+    <div class="container d-flex align-items-center">
       <router-link class="navbar-brand logoRwdHide" title="首頁" to="/"
         ><img
           src="@/assets/imageUrl/專案圖片/LOGO/橫向LOGO.png"
           alt="小巷弄甜點的logo"
           width="130"
         />
-        <h1 class="title">小巷弄甜點_alley_dessert</h1></router-link>
-        <router-link class="navbar-brand  d-lg-none" title="首頁" to="/"><i class="bi bi-house-door fs-1 ms-2"></i></router-link>
-            <router-link
-              to="/products"
-              class="nav-link productList d-block d-lg-none pb-0"
-              @click="currentPage('productList')"
-              ><i class="bi bi-shop fs-1"></i></router-link>
-            <router-link
-              to="/cart"
-              class="nav-link cart position-relative d-block d-lg-none pb-0"
-              @click="currentPage('cart')"
-              title="購物車">
-              <span
-              v-if="cartData.length > 0"
-                class="
-                  position-absolute
-                  top-75
-                  translate-middle
-                  badge
-                  rounded-pill
-                  bg-danger
-                  cartQtyRwd
-                ">
-                {{ cartData.length }}
-              </span>
-              <i class="bi bi-cart4 fs-1"></i>
-            </router-link>
-            <router-link
-              to="/favorite"
-              class="nav-link favorite d-lg-none pb-0"
-              @click="currentPage('favorite')"
-              title="收藏商品頁面">
-            <span v-if="collect_data.length > 0">
-              <i class="bi bi-heart-fill fs-3" style="color:red"></i>
-            </span>
-              <i class="bi bi-heart fs-3 collect_icon" v-else></i>
-            </router-link>
+        <h1 class="title">小巷弄甜點_alley_dessert</h1></router-link
+      >
+      <router-link class="navbar-brand d-lg-none d-block pb-0 pt-2" title="首頁" to="/"
+        ><i class="bi bi-house-door fs-1 ms-2"></i
+      ></router-link>
+      <router-link
+        to="/products"
+        class="nav-link productList d-block d-lg-none page-hide-border pb-0"
+        @click="currentPage('productList')"
+        ><i class="bi bi-shop fs-1"></i
+      ></router-link>
+      <router-link
+        to="/cart"
+        class="nav-link cart position-relative d-block d-lg-none pb-0"
+        @click="currentPage('cart')"
+        title="購物車"
+      >
+        <span
+          v-if="cartData.length > 0"
+          class="
+            position-absolute
+            top-75
+            translate-middle
+            badge
+            rounded-pill
+            bg-danger
+            cartQtyRwd
+          "
+        >
+          {{ cartData.length }}
+        </span>
+        <i class="bi bi-cart4 fs-1"></i>
+      </router-link>
+      <router-link
+        to="/favorite"
+        class="nav-link favorite d-lg-none pb-0"
+        @click="currentPage('favorite')"
+        title="收藏商品頁面"
+      >
+        <span v-if="collect_data.length > 0">
+          <i class="bi bi-heart-fill fs-3" style="color: red"></i>
+        </span>
+        <i class="bi bi-heart fs-3 collect_icon" v-else></i>
+      </router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -58,19 +65,13 @@
         </span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul
-          class="
-            navbar-nav
-            ms-auto align-items-lg-center text-center
-          "
-        >
+        <ul class="navbar-nav ms-auto align-items-lg-center text-center">
           <li class="nav-item">
             <router-link
               to="/"
               class="nav-link home me-4"
               @click="currentPage('home')"
             >
-              <i class="bi bi-house-door"></i>
               主頁</router-link
             >
           </li>
@@ -119,10 +120,11 @@
               to="/favorite"
               class="nav-link collect"
               @click="currentPage('collect')"
-              title="收藏商品頁面">
-            <span v-if="collect_data.length > 0">
-              <i class="bi bi-heart-fill fs-3" style="color:red"></i>
-            </span>
+              title="收藏商品頁面"
+            >
+              <span v-if="collect_data.length > 0">
+                <i class="bi bi-heart-fill fs-3" style="color: red"></i>
+              </span>
               <i class="bi bi-heart fs-3 collect_icon" v-else></i>
             </router-link>
           </li>
@@ -134,7 +136,7 @@
               title="購物車"
             >
               <span
-              v-if="cartData.length > 0"
+                v-if="cartData.length > 0"
                 class="
                   position-absolute
                   top-75
@@ -187,7 +189,9 @@ export default {
       })
     },
     clickPageHideMenu () {
-      document.querySelector('.collapse.navbar-collapse').classList.remove('show')
+      document
+        .querySelector('.collapse.navbar-collapse')
+        .classList.remove('show')
     }
   },
 

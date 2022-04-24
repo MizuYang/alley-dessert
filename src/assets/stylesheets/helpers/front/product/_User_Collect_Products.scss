@@ -47,7 +47,7 @@
     background-image: url(https://github.com/MizuYang/hexschool-Vue-week8/blob/main/src/assets/imageUrl/%E5%B0%88%E6%A1%88%E5%9C%96%E7%89%87/%E9%A0%81%E9%9D%A2%E5%9C%96%E7%89%87/%E6%94%B6%E8%97%8F%E7%94%A2%E5%93%81/%E6%94%B6%E8%97%8F%E7%94%A2%E5%93%81.jpeg?raw=true);
     background-position: 0 40%;
     background-size: cover;
-    opacity: .6;
+    opacity: 0.6;
     top: 0;
     left: 0%;
     width: 100%;
@@ -64,24 +64,53 @@
     @include xxl {
         background-position: 55% 35%;
     }
-    @media (min-width:1536px) {
+    @media (min-width: 1536px) {
         height: 60rem;
     }
-    @media (min-width:2752px) {
+    @media (min-width: 2752px) {
         height: 63.1rem;
     }
 }
-.product_img:hover, .card:hover .product_info{
+.product_img:hover,
+.card:hover .product_info {
     display: block;
 }
-.title{
+.title {
     margin-top: 0;
 }
-.heartbreak{
+.heartbreak {
     top: -130%;
-    right: 120%;
+    @media (max-width:415px) {
+        right: 250%;
+    }
+    @media (max-width:391px) {
+        right: 200%;
+    }
+    @include md {
+        right: 170%;
+    }
+    @include lg {
+        right: 130%;
+    }
 }
-.heart{
+.heart {
     top: -130%;
-    right: 120%;
+    @media (max-width:415px) {
+        right: 250%;
+    }
+    @media (max-width:391px) {
+        right: 200%;
+    }
+    @include md {
+        right: 170%;
+    }
+    @include lg {
+        right: 130%;
+    }
+}
+.btn-opacity-none {
+    background: #7a1c0c;
+    &:hover {
+        background: rgb(162, 17, 17);
+    }
 }

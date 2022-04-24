@@ -18,7 +18,7 @@
             id="name"
             name="姓名"
             type="text"
-            class="form-control"
+            class="form-control bg-dark text-primary"
             :class="{ 'is-invalid': errors['姓名'] }"
             placeholder="請輸入姓名"
             rules="required"
@@ -32,7 +32,7 @@
             type="email"
             id="email"
             placeholder="請輸入E-mail"
-            class="form-control"
+            class="form-control bg-dark text-primary"
             name="信箱"
             rules="email|required"
             :class="{ 'is-invalid': errors['信箱'] }"
@@ -46,7 +46,7 @@
             id="tel"
             name="電話"
             type="tel"
-            class="form-control"
+            class="form-control bg-dark text-primary"
             :class="{ 'is-invalid': errors['電話'] }"
             :rules="isPhone"
             placeholder="請輸入電話 / 例：09xxxxxxxx"
@@ -59,7 +59,7 @@
           <Field
             id="category"
             name="類別"
-            class="form-control form-select"
+            class="form-control form-select bg-dark text-primary"
             :class="{ 'is-invalid': errors['類別'] }"
             rules="required"
             as="select"
@@ -86,7 +86,7 @@
           <Field
             name="留言"
             id="message"
-            class="form-control mb-4"
+            class="form-control bg-dark text-primary mb-4"
             type="text"
             rules="required"
             :class="{ 'is-invalid': errors['留言'] }"
@@ -97,7 +97,7 @@
         <div class="text-center">
           <button
             type="submit"
-            class="btn btn-danger send-btn mb-4"
+            class="btn btn-danger send-btn btn-opacity-none mb-4"
             title="發送內容"
           >
             送出內容
