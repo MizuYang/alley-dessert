@@ -28,10 +28,10 @@ export default {
       setTimeout(() => {
         this.messages.shift()
       }, 6000)
-    },
-    clearToast (index) {
-      this.messages.splice(index, 1)
     }
+    // clearToast (index) {
+    //   this.messages.splice(index, 1)
+    // }
   },
 
   mounted () {

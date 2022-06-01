@@ -104,6 +104,7 @@
             </tr>
         </tbody>
       </table>
+      <!-- 手機版 -->
       <div class="border p-2 position-relative mb-3 d-lg-none" v-for="(product, index) in cartData" :key="product.id" :class="{ 'finalSteps-bg': product.checkbox }">
           <p class="text-center border-bottom pb-1">{{ index + 1 }}. {{ product.product.title }}</p>
           <div class="d-flex justify-content-center">
@@ -149,21 +150,22 @@
             </div>
                 <p>小計：{{ $thousandths(product.total) }} 元</p>
             <div class="d-flex  mt-auto">
-                    <input type="button" class="btn productsQtyBtn btn-outline-primary active_bigger"
-                    value="－" :disabled="product.qty <= 1" @click="updateProductQty('cut', product)"/>
-                    <input
-                      type="text"
-                      class="productsQtyText mx-1 fs-4"
-                      :value="product.qty" readonly/>
-                    <input
-                      type="button"
-                      class="btn productsQtyBtn btn-outline-primary active_bigger"
-                      value="＋"
-                      @click="updateProductQty('add', product)"/>
+              <input type="button" class="btn productsQtyBtn btn-outline-primary active_bigger"
+              value="－" :disabled="product.qty <= 1" @click="updateProductQty('cut', product)"/>
+              <input
+                type="text"
+                class="productsQtyText mx-1 fs-4"
+                :value="product.qty" readonly/>
+              <input
+                type="button"
+                class="btn productsQtyBtn btn-outline-primary active_bigger"
+                value="＋"
+                @click="updateProductQty('add', product)"/>
             </div>
           </div>
           </div>
       </div>
+      <!-- 桌機版 -->
       <div class="d-lg-flex justify-content-between mb-3 finalSteps-bg d-none d-lg-block">
         <router-link
           to="/products"
@@ -180,7 +182,8 @@
       </div>
     </div>
   </div>
-<div class=" d-lg-none text-center mt-5">
+<!-- 手機版 -->
+<div class="d-lg-none text-center mt-5">
   <p class="mt-auto me-5 finalSteps-bg w-100 mb-0">購買了 <span class="fs-4">{{ cartData.length }}</span> 個產品</p>
   <p class="mt-auto me-5 finalSteps-bg w-100 mb-0">總金額：<span class="fs-4 fw-bold">{{ $thousandths(total) }} </span> 元</p>
   <router-link
