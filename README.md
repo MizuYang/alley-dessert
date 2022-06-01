@@ -1,7 +1,7 @@
 
 <h1><a href="https://mizuyang.github.io/alley-dessert/#/">小巷弄甜點電商(Vue)作品連結</a></h1>
 <h2><a href="https://whimsical.com/vue-CJV2RXJ2QmzUewz4bvR1dU">專案結構 </a></h2>
-<h2><a href="https://equatorial-alloy-23b.notion.site/Vue-c56d16d8c5584847893e2733bb15e89c">專案過程</a></h2>
+<h2><a href="https://equatorial-alloy-23b.notion.site/Vue-c56d16d8c5584847893e2733bb15e89c">頁面介紹、開發紀錄</a></h2>
 
 <hr />
 
